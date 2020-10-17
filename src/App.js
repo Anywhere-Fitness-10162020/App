@@ -18,7 +18,7 @@ const NavContainer = styled.div`
     background-color: #F34213;
 
     h1 {
-        font-size: 5rem;
+        font-size: 6rem;
         margin: 2%;
     }
 
