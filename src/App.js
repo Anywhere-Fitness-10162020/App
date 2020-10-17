@@ -1,36 +1,26 @@
-import React from 'react'
-import { NavLink, Route, Switch } from 'react-router-dom'
-import styled from 'styled-components'
-import Homepage from './components/Homepage'
-import ClientForm from './components/ClientForm'
-import InstructorForm from './components/InstructorForm'
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-
-const AppContainer = styled.div`
-    width: 100%;
-`;
-
-
-export default function App(props) {
-    return(
-        <AppContainer>
-            <nav>                
-                <h1>Anywhere Fitness</h1>
-                <NavLink to='/'>Home</NavLink>
-                <NavLink to='/clients'>Clients</NavLink>
-                <NavLink to='/instructors'>Instructors</NavLink>
-            </nav>
-            <Switch>
-                <Route path='/instructors'>
-                    <InstructorForm />
-                </Route>
-                <Route path='/clients'>
-                    <ClientForm />
-                </Route>
-                <Route path='/'>
-                    <Homepage />
-                </Route>
-            </Switch>
-        </AppContainer>
-    )
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
+
+export default App;
