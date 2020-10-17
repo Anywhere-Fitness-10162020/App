@@ -7,12 +7,15 @@ import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
 
 
-const AppContainer = styled.div`
+const NavContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     max-width: 100%;
+    color: #2E2E3A;
+    
+    background-color: #F34213;
 
     h1 {
         font-size: 5rem;
@@ -26,19 +29,29 @@ const AppContainer = styled.div`
 
     a {
         margin: 2%;
+        font-size: 1.7rem;
+        text-decoration: none;
     }
+`;
+
+const AppContainer = styled.div`
 `;
 
 
 export default function App(props) {
     return(
-        <AppContainer>
+        <>
+        <NavContainer>
             <nav>                
                 <h1>Anywhere Fitness</h1>
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/clients'>Clients</NavLink>
                 <NavLink to='/instructors'>Instructors</NavLink>
             </nav>
+        
+        </NavContainer>
+    
+        <AppContainer>
             <Switch>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
@@ -53,6 +66,8 @@ export default function App(props) {
                     <Homepage />
                 </Route>
             </Switch>
+        
         </AppContainer>
+     </>
     )
 }
