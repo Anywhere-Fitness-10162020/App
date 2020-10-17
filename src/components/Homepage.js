@@ -30,7 +30,7 @@ const HomepageContainer = styled.div`
     .info2 {
         background: url('https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
         background-attachment: fixed;
-        background-size: stretch;
+        background-size: cover;
     }
 `;
 

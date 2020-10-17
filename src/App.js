@@ -24,8 +24,8 @@ const NavContainer = styled.div`
 
     a {
         color: #fff;
-        margin: 2%;
-        font-size: 1.7rem;
+        margin: 3%;
+        font-size: 3rem;
         text-decoration: none;
         text-shadow: 1px 2px 15px #000;
 
