@@ -3,6 +3,7 @@ import { NavLink, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Homepage from './components/Homepage'
 import ClientForm from './components/ClientForm'
+import Instructors from './components/Instructors'
 import InstructorForm from './components/InstructorForm'
 
 
@@ -22,6 +23,7 @@ export default function App(props) {
             </nav>
             <Switch>
                 <Route path='/instructors'>
+                    <Instructors />
                     <InstructorForm />
                 </Route>
                 <Route path='/clients'>

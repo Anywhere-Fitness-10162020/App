@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import * as yup from 'yup'
-import instructor_schema from '../schemas/instructor_schema'
+import instructorSigninSchema from '../schemas/instructor_schema'
 
 
 
@@ -37,50 +37,30 @@ const FormContainer = styled.div`
 
     button {
         padding: 1% 2%;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 700;
+    }
+
+    span {
+        text-decoration: underline;
     }
 `;
 
 //Default Form Values
 const defaultFormValues = {
-    name: '',
-    email: '',
-    address: '',
-    phone: '',
-    crossfit: false,
-    hiit: false,
-    cardio: false,
-    bodybuilding: false,
-    yoga: false,
-    pilates: false,
-    monwedfri: false,
-    tuethurs: false,
-    satsun: false,
-    about_me: ''
+    username: '',
+    password: ''
 }
 
 //Default Error State
 const defaultErrors = {
-    name: '',
-    email: '',
-    address: '',
-    phone: '',
-    crossfit: false,
-    hiit: false,
-    cardio: false,
-    bodybuilding: false,
-    yoga: false,
-    pilates: false,
-    monwedfri: false,
-    tuethurs: false,
-    satsun: false,
-    about_me: ''
+    username: '',
+    password: '',
 }
 
 
 
-export default function InstructorForm(props) {
+export default function InstructorSignIn(props) {
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -96,7 +76,7 @@ export default function InstructorForm(props) {
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
-        instructor_schema.isValid(formValues)
+        instructorSigninSchema.isValid(formValues)
             .then(valid => setDisabled(!valid));
     }, [formValues])
 
@@ -109,7 +89,7 @@ export default function InstructorForm(props) {
         const valueToUse = type === 'checkbox' ? checked : value;
 
         //Each time user interacts reach into Yup schema
-        yup.reach(instructor_schema, name)
+        yup.reach(instructorSigninSchema, name)
             .validate(valueToUse)
             //If valid, clear error log else add errors for display
             .then(valid => setErrors({ ...errors, [name]: '' }))
@@ -119,25 +99,18 @@ export default function InstructorForm(props) {
         setFormValues({ ...formValues, [name]: valueToUse });
     };
 
+
+    const handleClick = () => {
+        history.push('/')
+    }
+
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
 
         const newInstructor = {
-            name: formValues.name,
-            email: formValues.email,
-            address: formValues.address,
-            phone: formValues.phone,
-            crossfit: false,
-            hiit: false,
-            cardio: false,
-            bodybuilding: false,
-            yoga: false,
-            pilates: false,
-            monwedfri: false,
-            tuethurs: false,
-            satsun: false,
-            about_me: ''
+            name: formValues.username,
+            email: formValues.password
         }
 
         axios.post('https://reqres.in/')
@@ -154,147 +127,31 @@ export default function InstructorForm(props) {
 
     return(
         <FormContainer>
-            <h2>Instructor Signup</h2>
+            <h2>Instructor Sign-in</h2>
             <ErrorContainer>
-                <div>{errors.name}</div>
-                <div>{errors.email}</div>
-                <div>{errors.address}</div>
-                <div>{errors.phone}</div>
+                <div>{errors.username}</div>
+                <div>{errors.password}</div>
             </ErrorContainer>
             <form onSubmit={submit}>
-                <h3>Username / Password</h3>
-                    <label>Username&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Username<br/>
                         <input
                             type="text"
-                            name="name"
-                            value={formValues.name}
+                            name="username"
+                            value={formValues.username}
                             onChange={handleChange}
                         />
-                    </label><br/>
-                    <label>Password&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label><br/><br/>     
+                    <label>Password<br/>
                         <input
                             type="email"
-                            name="email"
-                            value={formValues.email}
+                            name="password"
+                            value={formValues.password}
                             onChange={handleChange}
                         />
-                    </label><br/>
-                <h3>Info</h3>
-                    <label>Name&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input
-                            type="text"
-                            name="name"
-                            value={formValues.name}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
-                    <label>Email&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input
-                            type="email"
-                            name="email"
-                            value={formValues.email}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
-                    <label>Address&nbsp;
-                        <input
-                            type="text"
-                            name="address"
-                            value={formValues.address}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
-                    <label>Phone&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input
-                            type="tel"
-                            name="phone"
-                            value={formValues.phone}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
-                <h3>Instructional Expertise</h3>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="crossfit"
-                            value={formValues.crossfit}
-                            onChange={handleChange}
-                        />Crossfit
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="hiit"
-                            value={formValues.hiit}
-                            onChange={handleChange}
-                        />H.I.I.T
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="cardio"
-                            value={formValues.cardio}
-                            onChange={handleChange}
-                        />Cardio
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bodybuilding"
-                            value={formValues.bodybuilding}
-                            onChange={handleChange}
-                        />Bodybuilding
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="yoga"
-                            value={formValues.yoga}
-                            onChange={handleChange}
-                        />Yoga
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="pilates"
-                            value={formValues.pilates}
-                            onChange={handleChange}
-                        />Pilates
-                    </label>
-                <h3>Availability</h3>
-                <label>
-                        <input
-                            type="checkbox"
-                            name="monwedfri"
-                            value={formValues.monwedfri}
-                            onChange={handleChange}
-                        />Monday | Wednesday | Friday
-                    </label><br/>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="tuethurs"
-                            value={formValues.tuethurs}
-                            onChange={handleChange}
-                        />Tuesday | Thursday
-                    </label><br/>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="satsun"
-                            value={formValues.satsun}
-                            onChange={handleChange}
-                        />Saturday | Sunday
-                    </label>
-                <h3>About Me</h3>
-                    <textarea
-                        type="text"
-                        name="about_me"
-                        value={formValues.about_me}
-                        onChange={handleChange}
-                    />
-                <br/>
-                <button disabled={true}>Submit</button>
+                    </label><br/><br/>               
+                <button disabled={true}>Sign In</button><br/><br/>
+                <div>Don't have an account? <span onClick={handleClick}>Sign-up</span></div>
+                
             </form>
         </FormContainer>
     )

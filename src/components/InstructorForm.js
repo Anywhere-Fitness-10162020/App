@@ -35,9 +35,16 @@ const FormContainer = styled.div`
         font-size: 2rem;
     }
 
+    form {
+        display: flex;
+        flex-direction: row nowrap;
+        justify-content: space-between;
+        padding: 2%;
+    }
+
     button {
         padding: 1% 2%;
-        font-size: 1rem;
+        font-size: 1.6rem;
         font-weight: 700;
     }
 `;
@@ -143,16 +150,17 @@ export default function InstructorForm(props) {
                 <div>{errors.phone}</div>
             </ErrorContainer>
             <form onSubmit={submit}>
+                <div>
                 <h3>Username / Password</h3>
-                    <label>Username&nbsp;&nbsp;&nbsp;
+                    <label>Username<br/>
                         <input
                             type="text"
                             name="username"
                             value={formValues.username}
                             onChange={handleChange}
                         />
-                    </label><br/>
-                    <label>Password&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label><br/><br/>
+                    <label>Password<br/>
                         <input
                             type="text"
                             name="password"
@@ -161,7 +169,7 @@ export default function InstructorForm(props) {
                         />
                     </label><br/>
                 <h3>Address Information</h3>
-                    <label>Name&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Name<br/>
                         <input
                             type="text"
                             name="name"
@@ -169,7 +177,7 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/>
-                    <label>Email&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Email<br/>
                         <input
                             type="email"
                             name="email"
@@ -177,7 +185,7 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/>
-                    <label>Address&nbsp;
+                    <label>Address<br/>
                         <input
                             type="text"
                             name="address"
@@ -185,7 +193,7 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/>
-                    <label>Phone&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label>Phone<br/>
                         <input
                             type="tel"
                             name="phone"
@@ -193,6 +201,8 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/>
+                    </div>
+                    <div>
                 <h3>Instructional Expertise</h3>
                     <label>
                         <input
@@ -249,7 +259,7 @@ export default function InstructorForm(props) {
                             name="monwedfri"
                             value={formValues.monwedfri}
                             onChange={handleChange}
-                        />Monday | Wednesday | Friday
+                        />Monday, Wednesday, Friday
                     </label><br/>
                     <label>
                         <input
@@ -257,7 +267,7 @@ export default function InstructorForm(props) {
                             name="tuethurs"
                             value={formValues.tuethurs}
                             onChange={handleChange}
-                        />Tuesday | Thursday
+                        />Tuesday, Thursday
                     </label><br/>
                     <label>
                         <input
@@ -265,7 +275,7 @@ export default function InstructorForm(props) {
                             name="satsun"
                             value={formValues.satsun}
                             onChange={handleChange}
-                        />Saturday | Sunday
+                        />Saturday, Sunday
                     </label>
                 <h3>About Me</h3>
                     <textarea
@@ -274,8 +284,9 @@ export default function InstructorForm(props) {
                         value={formValues.about_me}
                         onChange={handleChange}
                     />
-                <br/>
+                <br/><br/>
                 <button disabled={true}>Submit</button>
+                </div>
             </form>
         </FormContainer>
     )
