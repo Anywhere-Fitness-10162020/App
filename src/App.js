@@ -17,11 +17,6 @@ const NavContainer = styled.div`
     
     background-color: #F34213;
 
-    h1 {
-        font-size: 6rem;
-        margin: 2%;
-    }
-
     nav {
         padding: 2%;
         width: 100%;
