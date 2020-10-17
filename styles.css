@@ -60,5 +60,14 @@ html {
  
 body {
     font-size: 1.6rem;
+    letter-spacing: 2px;
+    line-height: 1.6rem;
     background-color: #2E2E3A;
+}
+
+
+h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 2% 0;
 }

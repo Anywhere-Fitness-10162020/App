@@ -8,14 +8,11 @@ const HomepageContainer = styled.div`
     margin: auto;
     color: #fff;
 
-    h2 {
-        font-size: 3rem;
-    }
-
     .hero {
         background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
         background-attachment: fixed;
         background-size: cover;
+        padding: 4%;
         width: 100%;
         height: 40vh;
         text-align: center;
