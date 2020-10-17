@@ -28,9 +28,19 @@ const NavContainer = styled.div`
     }
 
     a {
+        color: #fff;
         margin: 2%;
         font-size: 1.7rem;
         text-decoration: none;
+        text-shadow: 1px 2px 15px #000;
+
+        &:visited {
+            color: #fff;
+        }
+
+        &:hover {
+            color: #2E2E3A;
+        }
     }
 `;
 
