@@ -44,8 +44,6 @@ const FormContainer = styled.div`
 
 //Default Form Values
 const defaultFormValues = {
-    username: '',
-    password: '',
     name: '',
     email: '',
     address: '',
@@ -64,8 +62,6 @@ const defaultFormValues = {
 
 //Default Error State
 const defaultErrors = {
-    username: '',
-    password: '',
     name: '',
     email: '',
     address: '',
@@ -126,6 +122,31 @@ export default function InstructorForm(props) {
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
+
+        const newInstructor = {
+            name: formValues.name,
+            email: formValues.email,
+            address: formValues.address,
+            phone: formValues.phone,
+            crossfit: false,
+            hiit: false,
+            cardio: false,
+            bodybuilding: false,
+            yoga: false,
+            pilates: false,
+            monwedfri: false,
+            tuethurs: false,
+            satsun: false,
+            about_me: ''
+        }
+
+        axios.post('https://reqres.in/')
+            .then(success => {
+
+            })
+            .catch(error => {
+
+            })
         
     };
 
@@ -135,8 +156,6 @@ export default function InstructorForm(props) {
         <FormContainer>
             <h2>Instructor Signup</h2>
             <ErrorContainer>
-                <div>{errors.username}</div>
-                <div>{errors.password}</div>
                 <div>{errors.name}</div>
                 <div>{errors.email}</div>
                 <div>{errors.address}</div>
@@ -144,23 +163,23 @@ export default function InstructorForm(props) {
             </ErrorContainer>
             <form onSubmit={submit}>
                 <h3>Username / Password</h3>
-                    <label>Username&nbsp;&nbsp;&nbsp;
+                    <label>Username&nbsp;&nbsp;&nbsp;&nbsp;
                         <input
                             type="text"
-                            name="username"
-                            value={formValues.username}
+                            name="name"
+                            value={formValues.name}
                             onChange={handleChange}
                         />
                     </label><br/>
                     <label>Password&nbsp;&nbsp;&nbsp;&nbsp;
                         <input
-                            type="text"
-                            name="password"
-                            value={formValues.password}
+                            type="email"
+                            name="email"
+                            value={formValues.email}
                             onChange={handleChange}
                         />
                     </label><br/>
-                <h3>Address Information</h3>
+                <h3>Info</h3>
                     <label>Name&nbsp;&nbsp;&nbsp;&nbsp;
                         <input
                             type="text"
