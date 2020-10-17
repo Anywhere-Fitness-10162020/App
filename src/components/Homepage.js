@@ -38,7 +38,7 @@ const HomepageContainer = styled.div`
 
     .info3 {        
         background-color: #BC5D2E;
-    }
+    }  
 `;
 
 export default function Homepage(props) {

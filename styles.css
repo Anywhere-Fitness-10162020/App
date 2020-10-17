@@ -86,3 +86,81 @@ h3 {
 p {
     margin: 2% 0;
 }
+
+
+@media(max-width: 1200px) {
+    body {
+        font-size: 1.4rem;
+    }    
+    
+    h1 {
+        font-size: 6rem;
+        margin: 2% 0;
+        padding: 2%;   
+    }
+    
+    h2 {
+        font-size: 3rem;   
+    }
+    
+    h3 {
+        font-size: 2rem;   
+    }
+
+    p {
+        padding: 2%;
+        margin: 2%;
+    }
+}
+
+
+@media(max-width: 800px) {
+    body {
+        font-size: 1.4rem;
+    }    
+    
+    h1 {
+        font-size: 4rem;
+        margin: 2% 0;
+        padding: 2%;   
+    }
+    
+    h2 {
+        font-size: 3rem;   
+    }
+    
+    h3 {
+        font-size: 2rem;   
+    }
+
+    p {
+        padding: 4%;
+        margin: 4%;
+    }
+}
+
+      
+@media(max-width: 500px) {
+    body {
+        font-size: 1.4rem;
+    }    
+    
+    h1 {
+        font-size: 4rem;
+        margin: 2% 0;
+        padding: 2%;   
+    }
+    
+    h2 {
+        font-size: 3rem;   
+    }
+    
+    h3 {
+        font-size: 2rem;   
+    }
+
+    p {
+        padding: 4%;
+        margin: 4%;
+    }
+}
