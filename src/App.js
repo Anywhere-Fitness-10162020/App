@@ -1,26 +1,78 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { NavLink, Route, Switch } from 'react-router-dom'
+import styled from 'styled-components'
+import Homepage from './components/Homepage'
+import ClientForm from './components/ClientForm'
+import InstructorSignIn from './components/InstructorSignIn'
+import InstructorSignUp from './components/InstructorSignUp'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const NavContainer = styled.div`
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    color: #2E2E3A;
+    
+    background-color: #F34213;
+
+    nav {
+        padding: 2%;
+        width: 100%;
+    }
+
+    a {
+        color: #fff;
+        margin: 3%;
+        font-size: 3rem;
+        text-decoration: none;
+        text-shadow: 1px 2px 15px #000;
+
+        &:visited {
+            color: #fff;
+        }
+
+        &:hover {
+            color: #2E2E3A;
+        }
+    }
+`;
+
+const AppContainer = styled.div`
+`;
+
+
+export default function App(props) {
+    return(
+        <>
+        <NavContainer>
+            <nav>                
+                <h1>Anywhere Fitness</h1>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/clients'>Clients</NavLink>
+                <NavLink to='/instructors'>Instructors</NavLink>
+            </nav>
+        
+        </NavContainer>
+    
+        <AppContainer>
+            <Switch>
+                <Route path='/instructors/signup'>
+                    <InstructorSignUp />
+                </Route>
+                <Route path='/instructors'>
+                    <InstructorSignIn />
+                </Route>
+                <Route path='/clients'>
+                    <ClientForm />
+                </Route>
+                <Route path='/'>
+                    <Homepage />
+                </Route>
+            </Switch>
+        
+        </AppContainer>
+     </>
+    )
 }
-
-export default App;
