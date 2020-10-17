@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 import axios from 'axios';
 import styled from 'styled-components'
 import * as yup from 'yup'
@@ -75,6 +75,8 @@ export default function InstructorSignIn(props) {
     //Instantiate useHistory hook
     const history = useHistory();
 
+    const { url, path } = useRouteMatch();
+
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
         instructorSigninSchema.isValid(formValues)
@@ -102,7 +104,7 @@ export default function InstructorSignIn(props) {
 
 
     const handleClick = () => {
-        history.push('/')
+        history.push(`${path}/signup`)
     }
 
     const submit = (event) => {
@@ -124,7 +126,7 @@ export default function InstructorSignIn(props) {
             })
 
         //Push to classes page
-        history.push('/classes')
+        history.push(`${path}/classes`);
 
     };
 

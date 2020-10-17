@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
@@ -133,7 +134,33 @@ export default function InstructorForm(props) {
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
+
+        const newInstructor = {
+            username: formValues.username,
+            password: formValues.password,
+            name: formValues.name,
+            email: formValues.email,
+            address: formValues.address,
+            phone: formValues.phone,
+            crossfit: formValues.crossfit,
+            hiit: formValues.hiit,
+            cardio: formValues.cardio,
+            bodybuilding: formValues.bodybuilding,
+            yoga: formValues.yoga,
+            pilates: formValues.pilates,
+            monwedfri: formValues.monwedfri,
+            tuethurs: formValues.tuethurs,
+            satsun: formValues.satsun,
+            about_me: formValues.about_me
+        }
         
+        axios.post('https://reqres.in/api/instructor', newInstructor)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.log(err.data)
+            })
     };
 
 

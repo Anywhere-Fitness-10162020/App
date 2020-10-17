@@ -3,8 +3,8 @@ import { NavLink, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Homepage from './components/Homepage'
 import ClientForm from './components/ClientForm'
-import Instructors from './components/Instructors'
-import InstructorForm from './components/InstructorForm'
+import InstructorSignIn from './components/InstructorSignIn'
+import InstructorSignUp from './components/InstructorSignUp'
 
 
 const AppContainer = styled.div`
@@ -22,9 +22,11 @@ export default function App(props) {
                 <NavLink to='/instructors'>Instructors</NavLink>
             </nav>
             <Switch>
+                <Route path='/instructors/signup'>
+                    <InstructorSignUp />
+                </Route>
                 <Route path='/instructors'>
-                    <Instructors />
-                    <InstructorForm />
+                    <InstructorSignIn />
                 </Route>
                 <Route path='/clients'>
                     <ClientForm />
