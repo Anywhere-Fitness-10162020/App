@@ -14,14 +14,12 @@ const HomepageContainer = styled.div`
         background-size: cover;
         padding: 4%;
         width: 100%;
-        height: 40vh;
         text-align: center;
         text-shadow: 1px 1px 20px #000;
     }
 
     .info, .info2, .info3 {
         max-width: 100%;
-        height: 40vh;
         padding: 2%;
         text-shadow: 1px 1px 20px #000;
     }

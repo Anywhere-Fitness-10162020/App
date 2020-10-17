@@ -20,23 +20,7 @@ const NavContainer = styled.div`
     nav {
         padding: 2%;
         width: 100%;
-    }
-
-    a {
-        color: #fff;
-        margin: 3%;
-        font-size: 3rem;
-        text-decoration: none;
-        text-shadow: 1px 2px 15px #000;
-
-        &:visited {
-            color: #fff;
-        }
-
-        &:hover {
-            color: #2E2E3A;
-        }
-    }
+    }    
 `;
 
 const AppContainer = styled.div`
