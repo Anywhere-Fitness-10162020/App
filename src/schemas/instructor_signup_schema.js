@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 
-const instructor_schema = yup.object().shape({
+const instructorSignUpSchema = yup.object().shape({
     username: yup
         .string()
         .required('Please enter your username')
@@ -42,7 +42,7 @@ const instructor_schema = yup.object().shape({
     satsun: yup
         .boolean(),
     about_me: yup
-        .boolean()
+        .string()
 });
 
-export default instructor_schema
+export default instructorSignUpSchema

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import * as yup from 'yup'
-import instructorSigninSchema from '../schemas/instructor_schema'
+import instructorSigninSchema from '../schemas/instructor_signin_schema'
 
 
 
@@ -113,12 +113,12 @@ export default function InstructorSignIn(props) {
             email: formValues.password
         }
 
-        axios.post('https://reqres.in/')
-            .then(success => {
-
+        axios.post('https://reqres.in/api/instructor')
+            .then(res => {
+                console.log(res.data)
             })
-            .catch(error => {
-
+            .catch(err => {
+                console.log(err.data)
             })
         
     };
@@ -143,13 +143,13 @@ export default function InstructorSignIn(props) {
                     </label><br/><br/>     
                     <label>Password<br/>
                         <input
-                            type="email"
+                            type="text"
                             name="password"
                             value={formValues.password}
                             onChange={handleChange}
                         />
                     </label><br/><br/>               
-                <button disabled={true}>Sign In</button><br/><br/>
+                <button disabled={disabled}>Sign In</button><br/><br/>
                 <div>Don't have an account? <span onClick={handleClick}>Sign-up</span></div>
                 
             </form>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import * as yup from 'yup'
-import instructor_schema from '../schemas/instructor_schema'
+import instructorSignUpSchema from '../schemas/instructor_signup_schema'
 
 
 
@@ -107,7 +107,7 @@ export default function InstructorForm(props) {
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
-        instructor_schema.isValid(formValues)
+        instructorSignUpSchema.isValid(formValues)
             .then(valid => setDisabled(!valid));
     }, [formValues])
 
@@ -120,7 +120,7 @@ export default function InstructorForm(props) {
         const valueToUse = type === 'checkbox' ? checked : value;
 
         //Each time user interacts reach into Yup schema
-        yup.reach(instructor_schema, name)
+        yup.reach(instructorSignUpSchema, name)
             .validate(valueToUse)
             //If valid, clear error log else add errors for display
             .then(valid => setErrors({ ...errors, [name]: '' }))
@@ -285,7 +285,7 @@ export default function InstructorForm(props) {
                         onChange={handleChange}
                     />
                 <br/><br/>
-                <button disabled={true}>Submit</button>
+                <button disabled={disabled}>Submit</button>
                 </div>
             </form>
         </FormContainer>
