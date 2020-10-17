@@ -124,6 +124,8 @@ export default function InstructorSignIn(props) {
             .catch(err => {
                 console.log(err.data)
             })
+        
+        setFormValues(defaultFormValues);
 
         //Push to classes page
         history.push(`${path}/classes`);

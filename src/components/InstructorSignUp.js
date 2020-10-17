@@ -161,6 +161,8 @@ export default function InstructorForm(props) {
             .catch(err => {
                 console.log(err.data)
             })
+
+        setFormValues(defaultFormValues);
     };
 
 
