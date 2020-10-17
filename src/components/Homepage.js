@@ -19,18 +19,25 @@ const HomepageContainer = styled.div`
         text-shadow: 1px 1px 20px #000;
     }
 
-    .info, .info2 {
-        background-color: #2E2E3A;
+    .info, .info2, .info3 {
         max-width: 100%;
         height: 40vh;
         padding: 2%;
         text-shadow: 1px 1px 20px #000;
     }
 
+    .info {        
+        background-color: #2E2E3A;
+    }
+
     .info2 {
         background: url('https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
         background-attachment: fixed;
         background-size: cover;
+    }
+
+    .info3 {        
+        background-color: #BC5D2E;
     }
 `;
 
@@ -82,6 +89,25 @@ export default function Homepage(props) {
                 magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
                 Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
                  Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
+                </p>
+            </div>
+            <div className="info3">
+                <h2>Experienced Instructors</h2>
+                <p>
+                    Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
+                    magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
+                    Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
+                    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
+                    Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
+                    magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
+                </p>
+                <p>
+                    Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
+                    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
+                    Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
+                    magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
+                    Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
+                    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
                 </p>
             </div>
         </HomepageContainer>       
