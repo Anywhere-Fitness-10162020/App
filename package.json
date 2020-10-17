@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html"  
+    "start": "parcel index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.20.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import axios from 'axios';
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSigninSchema from '../schemas/instructor_signin_schema'
@@ -108,19 +109,23 @@ export default function InstructorSignIn(props) {
         //Prevent default form behaviour
         event.preventDefault();
 
-        const newInstructor = {
+        const instructorLogin = {
             name: formValues.username,
             email: formValues.password
         }
 
-        axios.post('https://reqres.in/api/instructor')
+        //Post to server
+        axios.post('https://reqres.in/api/instructor', instructorLogin)
             .then(res => {
                 console.log(res.data)
             })
             .catch(err => {
                 console.log(err.data)
             })
-        
+
+        //Push to classes page
+        history.push('/classes')
+
     };
 
 
