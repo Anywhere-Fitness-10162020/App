@@ -134,13 +134,22 @@ a:hover {
 
 
 /*Mobile first*/
-@media(min-width: 800px) {
+@media(min-width: 1000px) {
     body {
-        font-size: 2rem;
+        font-size: 5rem;
     }   
 
     h1 {
-        font-size: 8rem;
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+
+    p {        
+        padding: 1%;
+        margin: 1%;
     }
 }
 
@@ -153,6 +162,15 @@ a:hover {
 
     h1 {
         font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    p {        
+        padding: 2%;
+        margin: 1%;
     }
 }
 
