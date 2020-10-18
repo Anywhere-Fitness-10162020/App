@@ -136,7 +136,7 @@ a:hover {
 /*Mobile first*/
 @media(min-width: 1000px) {
     body {
-        font-size: 5rem;
+        font-size: 1.8rem;
     }   
 
     h1 {
