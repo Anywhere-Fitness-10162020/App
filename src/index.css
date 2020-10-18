@@ -80,7 +80,7 @@ html {
  
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-weight: 300;
     letter-spacing: 2px;
     line-height: 2rem;
@@ -90,23 +90,29 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Slab', serif;
     font-weight: 700;
-    margin: 4% 0;
+    margin: 2% 0;
+    padding: 2%;   
 }
 
+
+
 h1 {
-    font-size: 8rem;   
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 6rem;   
+    font-size: 2rem;  
+    padding: 2%; 
 }
 
 h3 {
-    font-size: 4rem;   
+    font-size: 2rem;
+    padding: 2%;   
 }
 
-p {
-    margin: 2% 0;
+p {        
+    padding: 4%;
+    margin: 2%;
 }
 
 a {
@@ -126,88 +132,38 @@ a:hover {
 }
 
 
-@media(max-width: 1200px) {
-    body {
-        font-size: 1.4rem;
-    }    
-    
-    h1 {
-        font-size: 6rem;
-        margin: 2% 0;
-        padding: 2%;   
-    }
-    
-    h2 {
-        font-size: 3rem;   
-    }
-    
-    h3 {
-        font-size: 2rem;   
-    }
 
-    p {
-        padding: 2%;
-        margin: 2%;
+/*Mobile first*/
+@media(min-width: 800px) {
+    body {
+        font-size: 2rem;
+    }   
+
+    h1 {
+        font-size: 8rem;
     }
 }
 
 
-@media(max-width: 800px) {
-    body {
-        font-size: 1.4rem;
-    }    
-    
-    h1 {
-        font-size: 4rem;
-        margin: 2% 0;
-        padding: 2%;   
-    }
-    
-    h2 {
-        font-size: 3rem;   
-    }
-    
-    h3 {
-        font-size: 2rem;   
-    }
 
-    p {
-        padding: 4%;
-        margin: 4%;
+@media(min-width:700px) {
+    body {
+        font-size: 1.6rem;
+    }   
+
+    h1 {
+        font-size: 6rem;
     }
 }
 
       
-@media(max-width: 330px) {
+@media(min-width: 300px) {
     body {
-        font-size: 1.2rem;
-    }    
-    
-    h1 {
-        font-size: 3rem;
-        margin: 2% 0;
-        padding: 2%;   
-    }
-    
-    h2 {
-        font-size: 2rem;  
-        padding: 2%; 
-    }
-    
-    h3 {
-        font-size: 2rem;
-        padding: 2%;   
-    }
-
-    p {        
-        padding: 4%;
-        margin: 2%;
-    }
+        font-size: 1.4rem;
+    } 
 
     a {
-        color: #fff;
-        margin: 3%;
-        font-size: 2rem;
+        font-size: 1.5em;
     }
 }
 
