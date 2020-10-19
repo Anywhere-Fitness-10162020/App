@@ -49,8 +49,7 @@ const defaultClass = [{
     class_duration: '30 mins',
     class_intensity_level: 'high',
     class_city: 'San Francisco',
-    class_date: '2020-10-20',
-    start_time: '7 am',
+    start_time: '2020-10-20 09:00:00',
     class_timezone: 'Eastern',
     type: 'yoga',
     max_attendees: '20',
@@ -62,8 +61,7 @@ const defaultClass = [{
     class_duration: '45 mins',
     class_intensity_level: 'low',
     class_city: 'San Francisco',
-    class_date: '2020-10-20',
-    start_time: '7 am',
+    start_time: '2020-10-20 09:00:00',
     class_timezone: 'Eastern',
     type: 'weightlifting',
     max_attendees: '20',
@@ -101,7 +99,6 @@ export default function InstructorSchedule(props) {
                 class_duration= {item.class_duration}
                 class_intensity_level = {item.class_intensity_level}
                 class_city = {item.class_city}
-                class_date = {item.class_date}
                 start_time = {item.start_time}
                 class_timezone = {item.class_timezone}
                 type = {item.type}
