@@ -5,7 +5,7 @@ import Homepage from './components/Homepage'
 import ClientForm from './components/ClientForm'
 import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
-
+ 
 
 const NavContainer = styled.div`
     display: flex;
