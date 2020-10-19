@@ -4,7 +4,7 @@ import { TEST_ACTION, USER_LOGIN, USER_LOGOUT } from '../actions';
 const initialState={
     testKey:"",
     loggedIn:false,
-    userRole:"public"
+    role:"public"
 };
 export const reducer = (state = initialState, action) => {
     console.log("reducer received action: ", action);
@@ -14,7 +14,7 @@ export const reducer = (state = initialState, action) => {
             const userLoginState = {
                 ...state,
                 loggedIn:action.payload.loggedIn,
-                userRole:action.payload.userRole
+                role:action.payload.role
             }
             return userLoginState;
 
@@ -22,7 +22,7 @@ export const reducer = (state = initialState, action) => {
             const userLogoutState={
                 ...state,
                 loggedIn:false,
-                userRole:"public"
+                role:"public"
             }
             return userLogoutState;
         case TEST_ACTION:

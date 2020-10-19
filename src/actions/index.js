@@ -15,7 +15,7 @@ export const userLogin=(role)=>{
         type:USER_LOGIN,
         payload:{
             loggedIn:true,
-            userRole:role,
+            role:role,
         }
     }
 }
@@ -27,7 +27,7 @@ export const userLogout=()=>{
         type:USER_LOGOUT,
         payload:{
             loggedIn:false,
-            userRole:"public",
+            role:"public",
         }
     }
 }

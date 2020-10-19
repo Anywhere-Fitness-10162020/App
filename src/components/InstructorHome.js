@@ -4,11 +4,11 @@ import InstructorSchedule from './InstructorSchedule'
 import CreateClass from './CreateClass'
 
 const InstructorHome = (props) => {
-    const {loggedIn, userRole} = props;
+    const {loggedIn, role} = props;
 
     return (
         <div>
-            <p className="testing">User: {userRole}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             
             <InstructorSchedule />
             <CreateClass />
@@ -19,7 +19,7 @@ const InstructorHome = (props) => {
 const mapStateToProps = state => {
     return {
         loggedIn:state.loggedIn,
-        userRole:state.userRole,
+        role:state.role,
     }
 }
 
