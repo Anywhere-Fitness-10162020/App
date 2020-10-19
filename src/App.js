@@ -57,10 +57,6 @@ export default function App(props) {
                 <Route path='/clients/home' >
                     <ClientHome />
                 </Route>
-                <Route path='/instructors/createclass'>
-                    <InstructorSchedule />
-                    <CreateClass />
-                </Route>
                 <Route path='/instructors/confirmation'>
                     <InstructorConfirmation />
                 </Route>

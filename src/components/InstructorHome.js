@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import InstructorSchedule from './InstructorSchedule'
+import CreateClass from './CreateClass'
 
 const InstructorHome = (props) => {
     const {loggedIn, userRole} = props;
@@ -7,7 +9,9 @@ const InstructorHome = (props) => {
     return (
         <div>
             <p className="testing">User: {userRole}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
-            <h2>Instructor Homepage</h2>
+            
+            <InstructorSchedule />
+            <CreateClass />
         </div>
     );
 };
