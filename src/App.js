@@ -9,11 +9,8 @@ import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import CreateClass from './components/CreateClass'
-<<<<<<< HEAD
 import InstructorSchedule from './components/InstructorSchedule'
-=======
 import ClassesPublic from './components/ClassesPublic'
->>>>>>> baf52b2ad67a5eadcffe4d25a22c3054a4beed49
  
 
 const NavContainer = styled.div`
