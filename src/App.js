@@ -31,7 +31,7 @@ const NavContainer = styled.div`
 const AppContainer = styled.div`
 `;
  
- 
+  
 export default function App(props) {
     return(
     <>
