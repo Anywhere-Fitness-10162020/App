@@ -8,8 +8,6 @@ import InstructorSignUp from './components/InstructorSignUp'
 import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
-import CreateClass from './components/CreateClass'
-import InstructorSchedule from './components/InstructorSchedule'
 import ClassesPublic from './components/ClassesPublic'
  
 
@@ -56,10 +54,6 @@ export default function App(props) {
                 </Route>
                 <Route path='/clients/home' >
                     <ClientHome />
-                </Route>
-                <Route path='/instructors/createclass'>
-                    <InstructorSchedule />
-                    <CreateClass />
                 </Route>
                 <Route path='/instructors/confirmation'>
                     <InstructorConfirmation />
