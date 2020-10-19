@@ -5,6 +5,8 @@ import Homepage from './components/Homepage'
 import ClientForm from './components/ClientForm'
 import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
+import InstructorConfirmation from './components/InstructorConfirmation'
+import CreateClass from './components/CreateClass'
  
 
 const NavContainer = styled.div`
@@ -42,6 +44,12 @@ export default function App(props) {
     
         <AppContainer>
             <Switch>
+                <Route path='/instructors/createclass'>
+                    <CreateClass />
+                </Route>
+                <Route path='/instructors/confirmation'>
+                    <InstructorConfirmation />
+                </Route>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
                 </Route>
