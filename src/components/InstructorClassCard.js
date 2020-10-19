@@ -51,7 +51,7 @@ export default function InstructorClassCard(props) {
         class_intensity_level, class_name, class_timezone,
         max_attendees, start_time, type, id} = props;
 
-
+    
         
     const handleDelete = (e) => {
         e.preventDefault();
