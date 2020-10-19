@@ -153,7 +153,7 @@ export default function InstructorForm(props) {
 
         console.log(newClass)
         
-        axios.post('https://cors-anywhere.herokuapp.com/https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
+        axios.post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
             .then(res => {
                 console.log(res.data);
             })

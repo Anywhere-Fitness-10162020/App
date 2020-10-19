@@ -18,7 +18,8 @@ const createClassSchema = yup.object().shape({
         .required('Please select your city')
         .oneOf(['Chicago', 'Colorado', 'New York', 'Los Angeles', 'San Francisco', 'Tennessee']),      
     class_date: yup
-        .string(),
+        .string()
+        .required(),
     start_time: yup
         .string()
         .required('Please select a start time'),
