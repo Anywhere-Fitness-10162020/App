@@ -75,7 +75,7 @@ export default function InstructorSignIn(props) {
     //Instantiate useHistory hook
     const history = useHistory();
 
-    const { url, path } = useRouteMatch();
+    const { path } = useRouteMatch();
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {

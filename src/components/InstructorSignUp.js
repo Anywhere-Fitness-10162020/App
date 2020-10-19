@@ -53,41 +53,17 @@ const FormContainer = styled.div`
 //Default Form Values
 const defaultFormValues = {
     username: '',
+    email: '',    
     password: '',
-    name: '',
-    email: '',
-    address: '',
-    phone: '',
-    crossfit: false,
-    hiit: false,
-    cardio: false,
-    bodybuilding: false,
-    yoga: false,
-    pilates: false,
-    monwedfri: false,
-    tuethurs: false,
-    satsun: false,
-    about_me: ''
+    phone: ''
 }
 
 //Default Error State
 const defaultErrors = {
     username: '',
+    email: '',    
     password: '',
-    name: '',
-    email: '',
-    address: '',
-    phone: '',
-    crossfit: false,
-    hiit: false,
-    cardio: false,
-    bodybuilding: false,
-    yoga: false,
-    pilates: false,
-    monwedfri: false,
-    tuethurs: false,
-    satsun: false,
-    about_me: ''
+    phone: ''
 }
 
 
@@ -138,23 +114,11 @@ export default function InstructorForm(props) {
         const newInstructor = {
             username: formValues.username,
             password: formValues.password,
-            name: formValues.name,
             email: formValues.email,
-            address: formValues.address,
-            phone: formValues.phone,
-            crossfit: formValues.crossfit,
-            hiit: formValues.hiit,
-            cardio: formValues.cardio,
-            bodybuilding: formValues.bodybuilding,
-            yoga: formValues.yoga,
-            pilates: formValues.pilates,
-            monwedfri: formValues.monwedfri,
-            tuethurs: formValues.tuethurs,
-            satsun: formValues.satsun,
-            about_me: formValues.about_me
+            phone: formValues.phone
         }
         
-        axios.post('https://reqres.in/api/instructor', newInstructor)
+        axios.post('https://anywherefitnesswebapi.herokuapp.com/api/auth/register', newInstructor)
             .then(res => {
                 console.log(res.data);
             })
@@ -163,6 +127,7 @@ export default function InstructorForm(props) {
             })
 
         setFormValues(defaultFormValues);
+        history.push('/instructors/confirmation')
     };
 
 
@@ -175,12 +140,10 @@ export default function InstructorForm(props) {
                 <div>{errors.password}</div>
                 <div>{errors.name}</div>
                 <div>{errors.email}</div>
-                <div>{errors.address}</div>
                 <div>{errors.phone}</div>
             </ErrorContainer>
             <form onSubmit={submit}>
                 <div>
-                <h3>Username / Password</h3>
                     <label>Username<br/>
                         <input
                             type="text"
@@ -189,23 +152,6 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/><br/>
-                    <label>Password<br/>
-                        <input
-                            type="text"
-                            name="password"
-                            value={formValues.password}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
-                <h3>Address Information</h3>
-                    <label>Name<br/>
-                        <input
-                            type="text"
-                            name="name"
-                            value={formValues.name}
-                            onChange={handleChange}
-                        />
-                    </label><br/>
                     <label>Email<br/>
                         <input
                             type="email"
@@ -213,15 +159,15 @@ export default function InstructorForm(props) {
                             value={formValues.email}
                             onChange={handleChange}
                         />
-                    </label><br/>
-                    <label>Address<br/>
+                    </label><br/><br/>                    
+                    <label>Password<br/>
                         <input
                             type="text"
-                            name="address"
-                            value={formValues.address}
+                            name="password"
+                            value={formValues.password}
                             onChange={handleChange}
                         />
-                    </label><br/>
+                    </label><br/><br/>
                     <label>Phone<br/>
                         <input
                             type="tel"
@@ -229,91 +175,8 @@ export default function InstructorForm(props) {
                             value={formValues.phone}
                             onChange={handleChange}
                         />
-                    </label><br/>
-                    </div>
-                    <div>
-                <h3>Instructional Expertise</h3>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="crossfit"
-                            value={formValues.crossfit}
-                            onChange={handleChange}
-                        />Crossfit
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="hiit"
-                            value={formValues.hiit}
-                            onChange={handleChange}
-                        />H.I.I.T
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="cardio"
-                            value={formValues.cardio}
-                            onChange={handleChange}
-                        />Cardio
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="bodybuilding"
-                            value={formValues.bodybuilding}
-                            onChange={handleChange}
-                        />Bodybuilding
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="yoga"
-                            value={formValues.yoga}
-                            onChange={handleChange}
-                        />Yoga
-                    </label>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="pilates"
-                            value={formValues.pilates}
-                            onChange={handleChange}
-                        />Pilates
-                    </label>
-                <h3>Availability</h3>
-                <label>
-                        <input
-                            type="checkbox"
-                            name="monwedfri"
-                            value={formValues.monwedfri}
-                            onChange={handleChange}
-                        />Monday, Wednesday, Friday
-                    </label><br/>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="tuethurs"
-                            value={formValues.tuethurs}
-                            onChange={handleChange}
-                        />Tuesday, Thursday
-                    </label><br/>
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="satsun"
-                            value={formValues.satsun}
-                            onChange={handleChange}
-                        />Saturday, Sunday
-                    </label>
-                <h3>About Me</h3>
-                    <textarea
-                        type="text"
-                        name="about_me"
-                        value={formValues.about_me}
-                        onChange={handleChange}
-                    />
-                <br/><br/>
+                    </label><br/><br/>
+                  
                 <button disabled={disabled}>Submit</button>
                 </div>
             </form>

@@ -7,6 +7,8 @@ import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
 import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
+import InstructorConfirmation from './components/InstructorConfirmation'
+import CreateClass from './components/CreateClass'
  
 
 const NavContainer = styled.div`
@@ -31,7 +33,7 @@ const AppContainer = styled.div`
 
 export default function App(props) {
     return(
-        <>
+    <>
         <NavContainer>
             <nav>                
                 <h1>Anywhere Fitness</h1>
@@ -41,9 +43,7 @@ export default function App(props) {
                 <NavLink to='/instructors/home'>Home:Instructor</NavLink>
                 <NavLink to='/clients/home'>Home:Client</NavLink>
             </nav>
-        
         </NavContainer>
-    
         <AppContainer>
             <Switch>
                 <Route path='/instructors/home' >
@@ -51,6 +51,12 @@ export default function App(props) {
                 </Route>
                 <Route path='/clients/home' >
                     <ClientHome />
+                </Route>
+                <Route path='/instructors/createclass'>
+                    <CreateClass />
+                </Route>
+                <Route path='/instructors/confirmation'>
+                    <InstructorConfirmation />
                 </Route>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
