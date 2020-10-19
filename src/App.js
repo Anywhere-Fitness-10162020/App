@@ -38,18 +38,18 @@ export default function App(props) {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/clients'>Clients</NavLink>
                 <NavLink to='/instructors'>Instructors</NavLink>
-                <NavLink to='/instructors-home'>Home (I)</NavLink>
-                <NavLink to='/clients-home'>Home (C)</NavLink>
+                <NavLink to='/instructors/home'>Home:Instructor</NavLink>
+                <NavLink to='/clients/home'>Home:Client</NavLink>
             </nav>
         
         </NavContainer>
     
         <AppContainer>
             <Switch>
-                <Route path='/instructors-home' >
+                <Route path='/instructors/home' >
                     <InstructorHome />
                 </Route>
-                <Route path='/clients-home' >
+                <Route path='/clients/home' >
                     <ClientHome />
                 </Route>
                 <Route path='/instructors/signup'>

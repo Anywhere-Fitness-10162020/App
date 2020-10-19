@@ -6,7 +6,7 @@ const InstructorHome = (props) => {
 
     return (
         <div>
-            <p className="testing">User role: {userRole} {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            <p className="testing">User: {userRole}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             <h2>Instructor Homepage</h2>
         </div>
     );
