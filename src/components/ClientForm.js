@@ -1,8 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-export default function ClientForm(props) {
+const ClientForm = (props) => {
+    
     return(
-        <h1>Client Form</h1>
+        <div>
+            <h1>Client Form</h1>
+        </div>
     )
 }
+
+export default ClientForm;
