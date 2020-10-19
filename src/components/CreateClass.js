@@ -54,14 +54,16 @@ const FormContainer = styled.div`
     }
 
     div {
-        width: 40%;
+        width: 100%;
     }
 
     button {
         padding: 1% 2%;
+        margin: 2%;
         font-size: 1.6rem;
         font-weight: 700;
     }
+
 `;
 
 //Default Form Values

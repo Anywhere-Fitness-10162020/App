@@ -26,9 +26,11 @@ const FormContainer = styled.div`
     letter-spacing: 2px;
     line-height: 1.6rem;
 
+   
     h2 {
         font-weight: 700;
         font-size: 4rem;
+        padding: 0;
     }
 
     h3 {
