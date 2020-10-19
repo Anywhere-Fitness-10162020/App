@@ -55,7 +55,7 @@ const defaultFormValues = {
     username: '',
     email: '',    
     password: '',
-    phone: ''
+    auth_code: ''
 }
 
 //Default Error State
@@ -63,7 +63,7 @@ const defaultErrors = {
     username: '',
     email: '',    
     password: '',
-    phone: ''
+    auth_code: ''
 }
 
 
@@ -115,7 +115,7 @@ export default function InstructorForm(props) {
             username: formValues.username,
             password: formValues.password,
             email: formValues.email,
-            phone: formValues.phone
+            auth_code: formValues.auth_code
         }
         
         axios.post('https://anywherefitnesswebapi.herokuapp.com/api/auth/register', newInstructor)
@@ -168,11 +168,11 @@ export default function InstructorForm(props) {
                             onChange={handleChange}
                         />
                     </label><br/><br/>
-                    <label>Phone<br/>
+                    <label>Auth Code<br/>
                         <input
-                            type="tel"
-                            name="phone"
-                            value={formValues.phone}
+                            type="text"
+                            name="auth_code"
+                            value={formValues.auth_code}
                             onChange={handleChange}
                         />
                     </label><br/><br/>
