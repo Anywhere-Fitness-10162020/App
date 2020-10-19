@@ -2,7 +2,9 @@
 import { TEST_ACTION } from '../actions';
 
 const initialState={
-    testKey:""
+    testKey:"",
+    loggedIn:false,
+    userRole:"client"
 };
 export const reducer = (state = initialState, action) => {
     console.log("reducer received action: ", action);
