@@ -9,6 +9,7 @@ import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import CreateClass from './components/CreateClass'
+import ClassesPublic from './components/ClassesPublic'
  
 
 const NavContainer = styled.div`
@@ -40,8 +41,11 @@ export default function App(props) {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/clients'>Clients</NavLink>
                 <NavLink to='/instructors'>Instructors</NavLink>
-                <NavLink to='/instructors/home'>Home:Instructor</NavLink>
-                <NavLink to='/clients/home'>Home:Client</NavLink>
+                <NavLink to='/public'>Classes Available</NavLink>
+            </nav>
+            <nav class="testing">
+                <NavLink to='/instructors/home'>View: Instructor</NavLink>
+                <NavLink to='/clients/home'>View: Client</NavLink>
             </nav>
         </NavContainer>
         <AppContainer>
@@ -66,6 +70,9 @@ export default function App(props) {
                 </Route>
                 <Route path='/clients'>
                     <ClientForm />
+                </Route>
+                <Route path='/public'>
+                    <ClassesPublic />
                 </Route>
                 <Route path='/'>
                     <Homepage />
