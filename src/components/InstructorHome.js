@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import InstructorSchedule from './InstructorSchedule'
+import InstructorSignIn from './InstructorSignIn'
 import CreateClass from './CreateClass'
 
 const InstructorHome = (props) => {
@@ -10,8 +11,7 @@ const InstructorHome = (props) => {
         <div>
             <p className="testing">User: {userRole}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             
-            <InstructorSchedule />
-            <CreateClass />
+            {loggedIn ? (<><InstructorSchedule /> <CreateClass /></>) : (<><p className="testing">Please Sign In</p> <InstructorSignIn /></>)}
         </div>
     );
 };
