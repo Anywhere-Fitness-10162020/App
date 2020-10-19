@@ -20,7 +20,7 @@ const ClientForm = (props) => {
         console.log(signupVals);
         userLogin("client");
         //usage: userLogin("roleName")
-    }
+    } 
     return(
         <div>
             <h2>Client Form</h2>
