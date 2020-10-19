@@ -45,14 +45,28 @@ const ScheduleContainer = styled.div`
 `;
 //Default Form Values
 const defaultClass = [{
-    class_name: 'testing',
+    id: 1,
+    class_name: 'Amazing Class Name',
     class_duration: '30 mins',
     class_intensity_level: 'high',
-    class_city: 'Test',
-    class_date: '2020 10 20',
+    class_city: 'San Francisco',
+    class_date: '2020-10-20',
     start_time: '7 am',
-    class_timezone: 'eastern',
+    class_timezone: 'Eastern',
     type: 'yoga',
+    max_attendees: '20',
+    instructor_id: '1'
+},
+{
+    id: 2,
+    class_name: 'Amazing Class Name 2',
+    class_duration: '45 mins',
+    class_intensity_level: 'low',
+    class_city: 'San Francisco',
+    class_date: '2020-10-20',
+    start_time: '7 am',
+    class_timezone: 'Eastern',
+    type: 'weightlifting',
     max_attendees: '20',
     instructor_id: '1'
 }];
@@ -75,15 +89,15 @@ export default function InstructorSchedule(props) {
             })
         }, [classes]);
     
-    
 
     return(
         <ScheduleContainer>
             <h2>Instructor Schedule</h2>     
 
-            {classes ? classes.map((item, index) => 
+            {classes ? classes.map((item) => 
             <InstructorClassCard
-                key = {index}
+                key = {item.id}
+                id = {item.id}
                 class_name={item.class_name}
                 class_duration= {item.class_duration}
                 class_intensity_level = {item.class_intensity_level}
