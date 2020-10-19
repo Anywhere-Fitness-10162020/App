@@ -144,8 +144,7 @@ export default function InstructorForm(props) {
             class_duration: formValues.class_duration,
             class_intensity_level: formValues.class_intensity_level,
             class_city: formValues.class_city,
-            class_date: formValues.class_date,
-            start_time: formValues.start_time,
+            start_time: `${formValues.class_date} ${formValues.start_time}`,
             class_timezone: formValues.class_timezone,
             type: formValues.type,
             max_attendees: formValues.max_attendees,
@@ -154,7 +153,7 @@ export default function InstructorForm(props) {
 
         console.log(newClass)
         
-        axios.post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
+        axios.post('https://cors-anywhere.herokuapp.com/https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
             .then(res => {
                 console.log(res.data);
             })
@@ -235,23 +234,23 @@ export default function InstructorForm(props) {
                     <label>Time<br/>
                         <select name="start_time" value={formValues.start_time} onChange={handleChange}>
                             <option value="">Select class start time</option>
-                            <option value="5 AM">5 AM</option>
-                            <option value="6 AM">6 AM</option>
-                            <option value="7 AM">7 AM</option>
-                            <option value="8 AM">8 AM</option>
-                            <option value="9 AM">9 AM</option>
-                            <option value="10 AM">10 AM</option>
-                            <option value="11 AM">11 AM</option>
-                            <option value="12 PM">12 PM</option>
-                            <option value="1 PM">1 PM</option>
-                            <option value="2 PM">2 PM</option>
-                            <option value="3 PM">3 PM</option>
-                            <option value="4 PM">4 PM</option>
-                            <option value="5 PM">5 PM</option>
-                            <option value="6 PM">6 PM</option>
-                            <option value="7 PM">7 PM</option>
-                            <option value="8 PM">8 PM</option>
-                            <option value="9 PM">9 PM</option>                               
+                            <option value="05:00:00">5 AM</option>
+                            <option value="06:00:00">6 AM</option>
+                            <option value="07:00:00">7 AM</option>
+                            <option value="08:00:00">8 AM</option>
+                            <option value="09:00:00">9 AM</option>
+                            <option value="10:00:00">10 AM</option>
+                            <option value="11:00:00">11 AM</option>
+                            <option value="12:00:00">12 PM</option>
+                            <option value="13:00:00">1 PM</option>
+                            <option value="14:00:00">2 PM</option>
+                            <option value="15:00:00">3 PM</option>
+                            <option value="16:00:00">4 PM</option>
+                            <option value="17:00:00">5 PM</option>
+                            <option value="18:00:00">6 PM</option>
+                            <option value="19:00:00">7 PM</option>
+                            <option value="20:00:00">8 PM</option>
+                            <option value="21:00:00">9 PM</option>                               
                         </select>
                         <select name="class_timezone" value={formValues.class_timezone} onChange={handleChange}>
                             <option value="">Select your time zone</option>
