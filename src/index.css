@@ -185,3 +185,9 @@ a:hover {
     }
 }
 
+/* testing and error messages */
+.testing {
+    color:red;
+    border:2px solid red;
+    background-color:rgb(92, 39, 39);
+}

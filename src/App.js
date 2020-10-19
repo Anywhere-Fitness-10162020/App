@@ -5,6 +5,8 @@ import Homepage from './components/Homepage'
 import ClientForm from './components/ClientForm'
 import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
+import ClientHome from './components/ClientHome'
+import InstructorHome from './components/InstructorHome'
  
 
 const NavContainer = styled.div`
@@ -36,12 +38,20 @@ export default function App(props) {
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/clients'>Clients</NavLink>
                 <NavLink to='/instructors'>Instructors</NavLink>
+                <NavLink to='/instructors-home'>Home (I)</NavLink>
+                <NavLink to='/clients-home'>Home (C)</NavLink>
             </nav>
         
         </NavContainer>
     
         <AppContainer>
             <Switch>
+                <Route path='/instructors-home' >
+                    <InstructorHome />
+                </Route>
+                <Route path='/clients-home' >
+                    <ClientHome />
+                </Route>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
                 </Route>
@@ -54,6 +64,7 @@ export default function App(props) {
                 <Route path='/'>
                     <Homepage />
                 </Route>
+
             </Switch>
         
         </AppContainer>
