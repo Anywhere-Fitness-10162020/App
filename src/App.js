@@ -10,7 +10,7 @@ import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import CreateClass from './components/CreateClass'
 import ClassesPublic from './components/ClassesPublic'
- 
+import LogoutButton from './components/LogoutButton'
 
 const NavContainer = styled.div`
     display: flex;
@@ -43,9 +43,10 @@ export default function App(props) {
                 <NavLink to='/instructors'>Instructors</NavLink>
                 <NavLink to='/public'>Classes Available</NavLink>
             </nav>
-            <nav class="testing">
+            <nav className="testing">
                 <NavLink to='/instructors/home'>View: Instructor</NavLink>
                 <NavLink to='/clients/home'>View: Client</NavLink>
+                <LogoutButton />
             </nav>
         </NavContainer>
         <AppContainer>
