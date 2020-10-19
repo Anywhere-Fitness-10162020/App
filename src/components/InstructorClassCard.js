@@ -52,7 +52,10 @@ export default function InstructorClassCard(props) {
         max_attendees, start_time, type, id} = props;
 
 
-    const handleDelete = (id) => {
+        
+    const handleDelete = (e) => {
+        e.preventDefault();
+
         Axios.delete(`https://anywherefitnesswebapi.herokuapp.com/${id}`)
             .then(res => {
                 console.log(res.data)
@@ -74,7 +77,7 @@ export default function InstructorClassCard(props) {
                 <p>City: {class_city}</p> 
                 <p>Attendees: {max_attendees}</p>
             </ClassInfo>             
-            <button onClick={handleDelete(id)}>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </ClassContainer>
     )
 }
