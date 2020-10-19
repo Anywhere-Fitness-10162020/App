@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { TEST_ACTION } from '../actions';
 
 const initialState={
@@ -13,7 +13,7 @@ export const reducer = (state = initialState, action) => {
                     ...state,
                     testKey:action.payload
                 }
-                console.log("reducer: test action completed");
+                console.log("reducer: test action completed: ", action.payload);
                 return testState;
         default:
                 console.log("reducer defaulted");
