@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ClientHome = (props) => {
-    const {loggedIn, userRole} = props;
+    const {loggedIn, role} = props;
 
     return(
         <div>
-            <p className="testing">User: {userRole}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             <h2>Client Homepage</h2>
         </div>
     );
@@ -15,7 +15,7 @@ const ClientHome = (props) => {
 const mapStateToProps = state => {
     return {
         loggedIn:state.loggedIn,
-        userRole:state.userRole
+        role:state.role
     }
 }
 

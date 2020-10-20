@@ -2,14 +2,15 @@ import React from 'react'
 import { NavLink, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Homepage from './components/Homepage'
-import ClientForm from './components/ClientForm'
+import ClientSignIn from './components/ClientSignIn'
+import ClientSignUp from './components/ClientSignUp'
 import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
 import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import ClassesPublic from './components/ClassesPublic'
- 
+import LogoutButton from './components/LogoutButton'
 
 const NavContainer = styled.div`
     display: flex;
@@ -30,7 +31,7 @@ const NavContainer = styled.div`
 const AppContainer = styled.div`
 `;
  
- 
+  
 export default function App(props) {
     return(
     <>
@@ -42,9 +43,10 @@ export default function App(props) {
                 <NavLink to='/instructors'>Instructors</NavLink>
                 <NavLink to='/public'>Classes Available</NavLink>
             </nav>
-            <nav class="testing">
+            <nav className="testing">
                 <NavLink to='/instructors/home'>View: Instructor</NavLink>
                 <NavLink to='/clients/home'>View: Client</NavLink>
+                <LogoutButton />
             </nav>
         </NavContainer>
         <AppContainer>
@@ -61,11 +63,14 @@ export default function App(props) {
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
                 </Route>
+                <Route path='/clients/signup'>
+                    <ClientSignUp />
+                </Route>
                 <Route path='/instructors'>
                     <InstructorSignIn />
                 </Route>
                 <Route path='/clients'>
-                    <ClientForm />
+                    <ClientSignIn />
                 </Route>
                 <Route path='/public'>
                     <ClassesPublic />
