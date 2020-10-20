@@ -66,13 +66,13 @@ export default function InstructorSchedule(props) {
             .then(res => {
                 //Store the array of classes
                 const classArray = res.data;
-                setClasses(classArray);
+                setClasses(classArray)
                 console.log(res.data);
             })
             .catch(err => {
                 console.log(err.data)
             })
-        }, [classes]);
+        }, []);
     
 
     return(
