@@ -4,7 +4,8 @@ import axios from 'axios'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
-
+import {connect} from 'react-redux'
+import {userLogin} from '../actions/index.js'
 
 
 //Styled Components
@@ -68,7 +69,11 @@ const defaultErrors = {
 
 
 
-export default function InstructorForm(props) {
+const InstructorForm = (props) => {
+    //Setup-----------------------------    
+    const {userLogin}=props;
+
+
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -115,15 +120,21 @@ export default function InstructorForm(props) {
             username: formValues.username,
             password: formValues.password,
             email: formValues.email,
-            auth_code: formValues.auth_code
+            role: formValues.auth_code
         }
+        const newInstructorApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
         
-        axios.post('https://anywherefitnesswebapi.herokuapp.com/api/auth/register', newInstructor)
+        axios
+            .post(newInstructorApi, newInstructor)
             .then(res => {
                 console.log(res.data);
+                userLogin("instructor");
+                history.push(`../instructors/home`);
             })
             .catch(err => {
-                console.log(err.data)
+                console.log("Signup error: ", err);
+                console.log("Error posting data: ", newInstructor);
+                console.log("Attempted to post to: ", newInstructorApi);
             })
 
         setFormValues(defaultFormValues);
@@ -183,3 +194,5 @@ export default function InstructorForm(props) {
         </FormContainer>
     )
 }
+
+export default connect(null,{userLogin})(InstructorForm);

@@ -4,7 +4,9 @@ import axios from 'axios';
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSigninSchema from '../schemas/instructor_signin_schema'
-
+import { userLogin } from '../actions';
+import {connect} from 'react-redux';
+import {saveToken} from '../api/helpers';
 
 
 //Styled Components
@@ -63,7 +65,9 @@ const defaultErrors = {
 
 
 
-export default function InstructorSignIn(props) {
+const InstructorSignIn = (props) => {
+    const {userLogin} = props;
+
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -114,23 +118,31 @@ export default function InstructorSignIn(props) {
         event.preventDefault();
 
         const instructorLogin = {
-            name: formValues.username,
-            email: formValues.password
+            username: formValues.username,
+            password: formValues.password
         }
-
+ 
         //Post to server
-        axios.post('https://reqres.in/api/instructor', instructorLogin)
+        const loginApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/login'
+        console.log('posting login...');
+        axios.post(loginApi, instructorLogin)
             .then(res => {
-                console.log(res.data)
+                console.log('User logged in: ', res.data)
+                userLogin('instructor');
+                saveToken(res.data.token);
+                history.push(`instructors/home`);
             })
             .catch(err => {
-                console.log(err.data)
+                console.log('Login error: ', err)
+                console.log('message', err.message, 'body: ',err.body);
+                console.log('Data failed to post: ', instructorLogin);
+                console.log('Attempted to post to: ', loginApi);
             })
         
         setFormValues(defaultFormValues);
 
         //Push to classes page
-        history.push(`${path}/classes`);
+        // history.push(`${path}/classes`);
 
     };
 
@@ -154,7 +166,7 @@ export default function InstructorSignIn(props) {
                     </label><br/><br/>     
                     <label>Password<br/>
                         <input
-                            type="text"
+                            type="password"
                             name="password"
                             value={formValues.password}
                             onChange={handleChange}
@@ -167,3 +179,5 @@ export default function InstructorSignIn(props) {
         </FormContainer>
     )
 }
+
+export default connect (null, {userLogin})(InstructorSignIn);

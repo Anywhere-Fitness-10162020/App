@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useHistory, useRouteMatch, Link } from 'react-router-dom'
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index';
+import {saveToken} from '../api/helpers';
 import axios from 'axios';
 
 const ClientSignIn = (props) => {
@@ -35,9 +36,9 @@ const ClientSignIn = (props) => {
         
         
         //Login Post------------------
-        const saveToken=(token)=>{
-            window.localStorage.setItem('token',token);
-        }
+        // const saveToken=(token)=>{
+        //     window.localStorage.setItem('token',token);
+        // }
         const loginApi='https://anywherefitnesswebapi.herokuapp.com/api/auth/login';
         const loginUser={...user};
         console.log('posting login...');
