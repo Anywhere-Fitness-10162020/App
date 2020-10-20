@@ -72,11 +72,12 @@ const ClassInfo = styled.div`
 
 
 export default function InstructorClassCard(props) {   
-        
+    //Props passed from InstructorSchedule Component  
     const {class_city, class_duration,
         class_intensity_level, class_name, class_timezone,
         max_attendees, start_time, type, id} = props;
 
+    //State if user hit edit button
     const [edit, setEdit] = useState(false);
         
 
