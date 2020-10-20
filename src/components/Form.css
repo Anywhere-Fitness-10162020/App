@@ -8,7 +8,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
+.wrapper {
+  margin-top: 200px;
+}
 .close-btn {
   position: absolute;
   top: 2%;
@@ -27,7 +29,7 @@
   );
   border-radius: 10px 0 0 10px;
   position: relative;
-  background-image: url(gym.svg);
+  background-image: url(./src/gym.svg);
   background-repeat: no-repeat;
   
   transform: translate(5%, 6%);

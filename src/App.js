@@ -11,8 +11,8 @@ import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
-import Form from './components/src/Form'
-import FormIn from './components/src/FormIn'
+// import Form from './components/src/Form'
+// import FormIn from './components/src/FormIn'
 
 const NavContainer = styled.div`
     display: flex;
@@ -66,13 +66,13 @@ export default function App(props) {
                     <InstructorSignUp />
                 </Route>
                 <Route path='/clients/signup'>
-                    <Form />
+                    <ClientSignUp />
                 </Route>
                 <Route path='/instructors'>
                     <InstructorSignIn />
                 </Route>
                 <Route path='/clients'>
-                    <FormIn />
+                    <ClientSignIn />
                 </Route>
                 <Route path='/public'>
                     <ClassesPublic />
