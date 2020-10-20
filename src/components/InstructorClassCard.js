@@ -45,12 +45,13 @@ const ClassInfo = styled.div`
         width: 40%;
         margin-bottom: 2%;
         margin-right: 2%;
-        border: 1px solid red;
+        border: 1px solid red;    
     }
 
     img {
-        width: 100%;
+        width: 100%;      
     }
+
     button {
         border-radius: 10px;
         padding: 1%;
@@ -84,7 +85,7 @@ export default function InstructorClassCard(props) {
     const handleDelete = (e) => {
         e.preventDefault();
 
-        Axios.delete(`https://anywherefitnesswebapi.herokuapp.com/${id}`)
+        Axios.delete(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`)
             .then(res => {
                 console.log(res.data)
             })
