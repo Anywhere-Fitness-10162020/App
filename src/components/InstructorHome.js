@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import InstructorSchedule from './InstructorSchedule'
-import InstructorSignIn from './InstructorSignIn'
+// import InstructorSignIn from './InstructorSignIn'
 import CreateClass from './CreateClass'
 
 const InstructorHome = (props) => {
@@ -11,7 +11,15 @@ const InstructorHome = (props) => {
         <div>
             <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             
-            {loggedIn ? (<><InstructorSchedule /> <CreateClass /></>) : (<><p className="testing">Please Sign In</p> <InstructorSignIn /></>)}
+            {/* Leaving this view public for development */}
+            {/* For release, will be locked to login-only with a private route */}
+            {/* ---------------------------------------- */}
+                {/* {loggedIn ? (<><InstructorSchedule /> <CreateClass /></>) : (<><p className="testing">Please Sign In</p> <InstructorSignIn /></>)} */}
+
+            <>
+                <InstructorSchedule /> 
+                <CreateClass />
+            </>
         </div>
     );
 };
@@ -23,4 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps,null)(InstructorHome);
+export default connect (mapStateToProps, null)(InstructorHome);

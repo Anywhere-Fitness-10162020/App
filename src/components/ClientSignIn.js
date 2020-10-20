@@ -63,7 +63,40 @@ const ClientSignIn = (props) => {
     validateInfo
   );
 
-  //Return-----------------------------
+    //Events-----------------------------
+
+    const handleChange = (e) =>{
+        setUser({
+            ...user,[e.target.name]:e.target.value
+        })
+    }
+    // const handleClick = () => {
+    //     history.push(`${path}/signup`);
+    // }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        
+        //Login Post------------------
+        // const saveToken=(token)=>{
+        //     window.localStorage.setItem('token',token);
+        // }
+        const loginApi='https://anywherefitnesswebapi.herokuapp.com/api/auth/login';
+        const loginUser={...user};
+        console.log('posting login...');
+        axios
+            .post(loginApi,loginUser)
+            .then(res=>{
+                console.log('result: ',res.data);
+                //set global state
+                userLogin("client");
+                saveToken(res.data.token);
+                //push to client homepage
+                history.push(`clients/home`);
+            })
+            .catch(err=>{
+                console.log('Login error: ',err);
+            })
 
   return (
     // <div>

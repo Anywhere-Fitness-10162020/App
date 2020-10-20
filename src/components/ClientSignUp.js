@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index.js';
-import {useHistory, useRouteMatch} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
 import errors from './src/validateInfo'
@@ -14,7 +14,7 @@ const ClientSignUp = (props) => {
     
     //Routing-----------------------------
     const history=useHistory();
-    const {path}=useRouteMatch();
+    // const {path}=useRouteMatch();
 
     //Form State-----------------------------
     const initialState={
@@ -32,6 +32,8 @@ const ClientSignUp = (props) => {
             {...newUser, [e.target.name]:e.target.value}
         )
     };
+
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
