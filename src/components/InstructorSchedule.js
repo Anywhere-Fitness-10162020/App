@@ -61,18 +61,22 @@ export default function InstructorSchedule(props) {
         
     const [classes, setClasses] = useState(defaultClass);
 
-    useEffect(() => {
+    const getCards = () => {
         axios.get('https://anywherefitnesswebapi.herokuapp.com/api/classes')
-            .then(res => {
-                //Store the array of classes
-                const classArray = res.data;
-                setClasses(classArray)
-                console.log(res.data);
-            })
-            .catch(err => {
-                console.log(err.data)
-            })
-        }, []);
+        .then(res => {
+            //Store the array of classes
+            const classArray = res.data;
+            setClasses(classArray)
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.log(err.data)
+        })
+    }
+
+    useEffect(() => {
+        getCards();
+    }, []);
     
 
     return(
@@ -92,6 +96,7 @@ export default function InstructorSchedule(props) {
                 type = {item.type}
                 max_attendees = {item.max_attendees}
                 instructor_id = {item.instructor_id}
+                getCards = {getCards}
             />)
             : null}
         </ScheduleContainer>

@@ -76,7 +76,7 @@ export default function InstructorClassCard(props) {
         
     const {class_city, class_duration,
         class_intensity_level, class_name, class_timezone,
-        max_attendees, start_time, type, id} = props;
+        max_attendees, start_time, type, getCards, id} = props;
 
     const [edit, setEdit] = useState(false);
         
@@ -87,6 +87,7 @@ export default function InstructorClassCard(props) {
 
         Axios.delete(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`)
             .then(res => {
+                getCards();
                 console.log(res.data)
             })
             .catch(err => {
