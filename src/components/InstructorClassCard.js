@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React from 'react'
 import styled from 'styled-components'
 
+
 //Styled Components
 const ClassContainer = styled.div`
     max-width: 100%;
@@ -21,8 +22,8 @@ const ClassContainer = styled.div`
 
     h3 {
         font-weight: 700;
-        font-size: 2rem;
-        margin: 0;
+        font-size: 3rem;
+        margin: 2% 0;
         padding: 0;
     }
 
@@ -33,7 +34,19 @@ const ClassInfo = styled.div`
     flex-flow: row wrap;
 
     p {
-        width: 20%;
+        width: 100%;
+    }
+
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        width: 48%;
+        margin-bottom: 2%;
+        margin-right: 2%;
+    }
+
+    img {
+        width: 100%;
     }
     button {
         border-radius: 10px;
@@ -68,14 +81,19 @@ export default function InstructorClassCard(props) {
     return(
         <ClassContainer>    
             <h3>{class_name}</h3>
-            <ClassInfo>                
-                <p>Type: {type}</p>
-                <p>Class Duration: {class_duration}</p>
-                <p>Intensity: {class_intensity_level}</p>
-                <p>Date: {start_time.split(' ', 1)}</p>
-                <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
-                <p>City: {class_city}</p> 
-                <p>Attendees: {max_attendees}</p>
+            <ClassInfo>
+                <div>
+                    <img src='/assets/yoga.jpg' />
+                </div>
+                <div>
+                    <p>Type: {type}</p>
+                    <p>Class Duration: {class_duration}</p>
+                    <p>Intensity: {class_intensity_level}</p>
+                    <p>Date: {start_time.split(' ', 1)}</p>
+                    <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
+                    <p>City: {class_city}</p> 
+                    <p>Attendees: {max_attendees}</p>
+                </div>                
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
         </ClassContainer>

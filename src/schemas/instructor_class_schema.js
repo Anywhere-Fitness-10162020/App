@@ -7,8 +7,7 @@ const createClassSchema = yup.object().shape({
         .min(5, 'Please use more than 5 characters for class name'),
     class_duration: yup
         .string()
-        .required('Please select a class duration')
-        .oneOf(['30 minutes', '45 minutes', '1 hour']),
+        .required('Please select a class duration'),
     class_intensity_level: yup
         .string()
         .required('Please enter class intensity level')
@@ -30,7 +29,9 @@ const createClassSchema = yup.object().shape({
     type: yup
         .string()
         .required('Please select a class type')
-        .oneOf(['yoga', 'pilates', 'crossfit', 'spin', 'weightlifting', 'boxing', 'swimming']),
+        .oneOf(['yoga', 'pilates', 'crossfit', 'biking',
+                'weightlifting', 'martial arts', 'boxing',
+                'running', 'swimming', 'adventure']),
     max_attendees: yup
         .number()
         .required('Please enter class size')
