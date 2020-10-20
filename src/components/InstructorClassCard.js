@@ -1,6 +1,7 @@
 import Axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import EditClass from './EditClass'
 
 
 //Styled Components
@@ -31,7 +32,8 @@ const ClassContainer = styled.div`
 
 const ClassInfo = styled.div`
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row wrap;    
+    justify-content: space-between;
 
     p {
         width: 100%;
@@ -40,9 +42,10 @@ const ClassInfo = styled.div`
     div {
         display: flex;
         flex-flow: row wrap;
-        width: 48%;
+        width: 40%;
         margin-bottom: 2%;
         margin-right: 2%;
+        border: 1px solid red;
     }
 
     img {
@@ -54,7 +57,17 @@ const ClassInfo = styled.div`
         height: 10px;
         font-weight: 700;
     }
+
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+
+        input {
+            width: 100%;
+        }
+    }
 `;
+
 
 
 
@@ -64,8 +77,10 @@ export default function InstructorClassCard(props) {
         class_intensity_level, class_name, class_timezone,
         max_attendees, start_time, type, id} = props;
 
-    
+    const [edit, setEdit] = useState(false);
         
+
+    //Delete Handler    
     const handleDelete = (e) => {
         e.preventDefault();
 
@@ -76,6 +91,12 @@ export default function InstructorClassCard(props) {
             .catch(err => {
                 console.log(err.data)
             })
+    }
+
+    //Edit Handler    
+    const handleEdit = (e) => {
+        e.preventDefault();
+        setEdit(!edit);
     }
 
     return(
@@ -95,16 +116,23 @@ export default function InstructorClassCard(props) {
                     {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
                 </div>
                 <div>
-                    <p>Type: {type}</p>
-                    <p>Class Duration: {class_duration}</p>
-                    <p>Intensity: {class_intensity_level}</p>
-                    <p>Date: {start_time.split(' ', 1)}</p>
-                    <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
-                    <p>City: {class_city}</p> 
-                    <p>Attendees: {max_attendees}</p>
+                    {edit
+                    ?   
+                        <EditClass />
+                    :   <>
+                            <p>Type: {type}</p>
+                            <p>Class Duration: {class_duration}</p>
+                            <p>Intensity: {class_intensity_level}</p>
+                            <p>Date: {start_time.split(' ', 1)}</p>
+                            <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
+                            <p>City: {class_city}</p> 
+                            <p>Attendees: {max_attendees}</p>
+                        </>
+                    }
                 </div>                
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleEdit}>Edit</button>
         </ClassContainer>
     )
 }

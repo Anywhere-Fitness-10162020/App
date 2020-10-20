@@ -23,4 +23,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect (mapStateToProps,null)(InstructorHome);
+export default connect (mapStateToProps, null)(InstructorHome);
