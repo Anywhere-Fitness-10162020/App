@@ -121,7 +121,7 @@ const InstructorSignIn = (props) => {
             username: formValues.username,
             password: formValues.password
         }
-
+ 
         //Post to server
         const loginApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/login'
         console.log('posting login...');
