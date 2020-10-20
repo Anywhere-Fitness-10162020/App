@@ -11,6 +11,9 @@ import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
 import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
+import InstructorSchedule from './components/InstructorSchedule'
+
+
 
 const NavContainer = styled.div`
     display: flex;
@@ -62,6 +65,7 @@ export default function App(props) {
                 </Route>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
+                    <InstructorSchedule />
                 </Route>
                 <Route path='/clients/signup'>
                     <ClientSignUp />
