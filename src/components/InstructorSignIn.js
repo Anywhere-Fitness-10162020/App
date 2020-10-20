@@ -118,8 +118,8 @@ const InstructorSignIn = (props) => {
         event.preventDefault();
 
         const instructorLogin = {
-            name: formValues.username,
-            email: formValues.password
+            username: formValues.username,
+            password: formValues.password
         }
 
         //Post to server
@@ -134,6 +134,7 @@ const InstructorSignIn = (props) => {
             })
             .catch(err => {
                 console.log('Login error: ', err)
+                console.log('message', err.message, 'body: ',err.body);
                 console.log('Data failed to post: ', instructorLogin);
                 console.log('Attempted to post to: ', loginApi);
             })
@@ -165,7 +166,7 @@ const InstructorSignIn = (props) => {
                     </label><br/><br/>     
                     <label>Password<br/>
                         <input
-                            type="text"
+                            type="password"
                             name="password"
                             value={formValues.password}
                             onChange={handleChange}
