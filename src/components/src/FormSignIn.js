@@ -2,6 +2,7 @@ import React from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
 import {useHistory, useRouteMatch} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import './Form.css';
 
 const FormSignIn = ({ submitForm }) => {
@@ -9,7 +10,7 @@ const FormSignIn = ({ submitForm }) => {
       submitForm,
       validate
     );
-    // const history = useHistory()
+    const history = useHistory()
     const {path} = useRouteMatch()
     return (
 
@@ -50,8 +51,8 @@ const FormSignIn = ({ submitForm }) => {
             Sign In
           </button>
           <span className='form-input-login'>
-            Don't have an account? Sign Up <span onClick={history.push(`${path}`)}></span>
-          </span>
+            Don't have an account? Sign Up <Link to='/clients/signup'>here</Link>
+            </span>
         </form>
       </div>
     );
