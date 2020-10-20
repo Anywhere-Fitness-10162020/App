@@ -13,22 +13,22 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    
+    display: flex;
+    flex-flow: row nowrap;
+    border: 1px solid red;
+
+    input {
+        width: 100%;
+    }
+
+    .editBtn {
+        border-radius: 10px;
+        padding: 4%;
+        font-weight: 700;
+    }
 `;
 
-//Default Form Values
-const defaultFormValues = {
-    class_name: '',
-    class_duration: '',
-    class_intensity_level: '',
-    class_city: '',
-    class_date: '',
-    start_time: '',
-    class_timezone: '',
-    type: '',
-    max_attendees: '',
-    instructor_id: ''
-}
+
 
 //Default Error State
 const defaultErrors = {
@@ -46,7 +46,26 @@ const defaultErrors = {
 
 
 
-export default function InstructorForm(props) {
+export default function EditForm(props) {
+
+    const {class_city, class_duration,
+        class_intensity_level, class_name, class_timezone,
+        max_attendees, start_time, type, getCards, id} = props;
+
+    //Default Form Values
+    const defaultFormValues = {
+        class_name: class_name,
+        class_duration: class_duration,
+        class_intensity_level: class_intensity_level,
+        class_city: class_city,
+        class_date: start_time.split(' ', 1),
+        start_time: start_time.split(' ')[1],
+        class_timezone: class_timezone,
+        type: type,
+        max_attendees: max_attendees,
+        instructor_id: id
+    }
+
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -57,9 +76,7 @@ export default function InstructorForm(props) {
     //Keep button state
     const [disabled, setDisabled] = useState(true)
 
-    //Instantiate useHistory hook
-    const history = useHistory();
-
+    
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
         createClassSchema.isValid(formValues)
@@ -97,8 +114,8 @@ export default function InstructorForm(props) {
             start_time: `${formValues.class_date} ${formValues.start_time}`,
             class_timezone: formValues.class_timezone,
             type: formValues.type,
-            max_attendees: formValues.max_attendees,
-            instructor_id: formValues.id
+            attendee_count: 0,
+            max_attendees: formValues.max_attendees
         }
 
         console.log(newClass)
@@ -234,8 +251,10 @@ export default function InstructorForm(props) {
                             <option value="Tennessee">Tennessee</option>    
                         </select>
                     </label><br/>
+                    
+                    
                     </div>
-                    <button disabled={disabled}>Submit</button>
+                    <button className='editBtn' disabled={disabled}>Submit</button>
             </form>
         </FormContainer>
     )
