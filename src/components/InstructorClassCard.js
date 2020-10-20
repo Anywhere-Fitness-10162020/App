@@ -83,7 +83,16 @@ export default function InstructorClassCard(props) {
             <h3>{class_name}</h3>
             <ClassInfo>
                 <div>
-                    <img src='/assets/yoga.jpg' />
+                    {type === 'yoga' ? <img src='/assets/yoga.jpg' /> : null }
+                    {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' /> : null }
+                    {type === 'swimming' ? <img src='/assets/swimming.jpg' /> : null }
+                    {type === 'running' ? <img src='/assets/running.jpg' /> : null }
+                    {type === 'pilates' ? <img src='/assets/pilates.jpg' /> : null }
+                    {type === 'martial arts' ? <img src='/assets/martialarts.jpg' /> : null }
+                    {type === 'crossfit' ? <img src='/assets/crossfit.jpg' /> : null }
+                    {type === 'boxing' ? <img src='/assets/boxing.jpg' /> : null }
+                    {type === 'biking' ? <img src='/assets/biking.jpg' /> : null }
+                    {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
                 </div>
                 <div>
                     <p>Type: {type}</p>
