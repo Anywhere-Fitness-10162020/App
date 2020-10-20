@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index.js';
-import {useHistory, useRouteMatch} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import axios from 'axios';
  
 const ClientSignUp = (props) => {
@@ -11,7 +11,7 @@ const ClientSignUp = (props) => {
     
     //Routing-----------------------------
     const history=useHistory();
-    const {path}=useRouteMatch();
+    // const {path}=useRouteMatch();
 
     //Form State-----------------------------
     const initialState={
