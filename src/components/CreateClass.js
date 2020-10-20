@@ -197,10 +197,13 @@ export default function InstructorForm(props) {
                             <option value="yoga">Yoga</option>
                             <option value="pilates">Pilates</option>
                             <option value="crossfit">Crossfit</option>
-                            <option value="spin">Spin</option>
+                            <option value="biking">Biking</option>
                             <option value="weightlifting">Weightlifting</option>
+                            <option value="martial arts">Martial Arts</option>
                             <option value="boxing">Boxing</option>  
-                            <option value="swimming">Swimming</option>                                   
+                            <option value="running">Running</option>
+                            <option value="swimming">Swimming</option> 
+                            <option value="adventure">Adventure</option>                                     
                         </select>
                     </label><br/><br/>
                     <label>Intensity Level<br/>
@@ -214,9 +217,15 @@ export default function InstructorForm(props) {
                     <label>Duration<br/>
                         <select name="class_duration" value={formValues.class_duration} onChange={handleChange}>
                             <option value="">Select class duration</option>
-                            <option value="30 minutes">30 minutes</option>
-                            <option value="45 minutes">45 minutes</option>
-                            <option value="1 hour">1 hour</option>                                 
+                            <option value="00:30:00">30 minutes</option>
+                            <option value="00:45:00">45 minutes</option>
+                            <option value="01:00:00">1 hour</option>  
+                            <option value="01:30:00">1 hour 30 minutes</option>     
+                            <option value="01:45:00">1 hour 45 minutes</option>  
+                            <option value="02:00:00">2 hours</option>      
+                            <option value="02:30:00">2 hours 30 minutes</option>  
+                            <option value="02:45:00">2 hours 45 minutes</option>
+                            <option value="03:00:00">3 hours</option>                            
                         </select>
                     </label><br/><br/>
                     <label>Class Size<br/>

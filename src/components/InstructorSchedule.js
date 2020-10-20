@@ -44,28 +44,16 @@ const ScheduleContainer = styled.div`
 `;
 //Default Form Values
 const defaultClass = [{
-    id: 1,
-    class_name: 'Amazing Class Name',
-    class_duration: '30 mins',
-    class_intensity_level: 'high',
-    class_city: 'San Francisco',
-    start_time: '2020-10-20 09:00:00',
-    class_timezone: 'Eastern',
-    type: 'yoga',
-    max_attendees: '20',
-    instructor_id: '1'
-},
-{
-    id: 2,
-    class_name: 'Amazing Class Name 2',
-    class_duration: '45 mins',
-    class_intensity_level: 'low',
-    class_city: 'San Francisco',
-    start_time: '2020-10-20 09:00:00',
-    class_timezone: 'Eastern',
-    type: 'weightlifting',
-    max_attendees: '20',
-    instructor_id: '1'
+    id: '',
+    class_name: '',
+    class_duration: '',
+    class_intensity_level: '',
+    class_city: '',
+    start_time: '',
+    class_timezone: '',
+    type: '',
+    max_attendees: '',
+    instructor_id: ''
 }];
 
 
@@ -78,13 +66,13 @@ export default function InstructorSchedule(props) {
             .then(res => {
                 //Store the array of classes
                 const classArray = res.data;
-                setClasses(classArray);
+                setClasses(classArray)
                 console.log(res.data);
             })
             .catch(err => {
                 console.log(err.data)
             })
-        }, [classes]);
+        }, []);
     
 
     return(
