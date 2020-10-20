@@ -2,10 +2,18 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index.js';
+import {useHistory, useRouteMatch} from 'react-router-dom';
 import axios from 'axios';
-
-const ClientSignup = (props) => {
+ 
+const ClientSignUp = (props) => {
+    //Setup-----------------------------    
     const {userLogin}=props;
+    
+    //Routing-----------------------------
+    const history=useHistory();
+    const {path}=useRouteMatch();
+
+    //Form State-----------------------------
     const initialState={
         username:"",
         password:"",
@@ -13,6 +21,9 @@ const ClientSignup = (props) => {
         role:"client",
     };
     const [newUser, setNewUser] = useState(initialState);
+
+
+    //Events-----------------------------
     const handleChange = (e) => {
         setNewUser(
             {...newUser, [e.target.name]:e.target.value}
@@ -20,6 +31,8 @@ const ClientSignup = (props) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        //Signup Post------------------
         const newUserPost = {...newUser};
         const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
         axios
@@ -28,6 +41,8 @@ const ClientSignup = (props) => {
                 console.log("Signup successful:", res.data);
                 userLogin("client");
                 //usage: userLogin("roleName")
+                history.push(`../clients/home`);
+
             })
             .catch(err=>{
                 console.log("Signup error: ", err);
@@ -36,6 +51,8 @@ const ClientSignup = (props) => {
             });
         
     } 
+
+    //Return-----------------------------
     return(
         <div>
             <h2>Client Form</h2>
@@ -67,4 +84,4 @@ const ClientSignup = (props) => {
     )
 }
 
-export default connect(null,{userLogin})(ClientSignup);
+export default connect(null,{userLogin})(ClientSignUp);

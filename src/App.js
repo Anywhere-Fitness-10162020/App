@@ -2,7 +2,8 @@ import React from 'react'
 import { NavLink, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import Homepage from './components/Homepage'
-import ClientSignup from './components/ClientSignup'
+import ClientSignIn from './components/ClientSignIn'
+import ClientSignUp from './components/ClientSignUp'
 import InstructorSignIn from './components/InstructorSignIn'
 import InstructorSignUp from './components/InstructorSignUp'
 import ClientHome from './components/ClientHome'
@@ -62,11 +63,14 @@ export default function App(props) {
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
                 </Route>
+                <Route path='/clients/signup'>
+                    <ClientSignUp />
+                </Route>
                 <Route path='/instructors'>
                     <InstructorSignIn />
                 </Route>
                 <Route path='/clients'>
-                    <ClientSignup />
+                    <ClientSignIn />
                 </Route>
                 <Route path='/public'>
                     <ClassesPublic />
