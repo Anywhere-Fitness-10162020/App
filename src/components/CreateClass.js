@@ -197,10 +197,13 @@ export default function InstructorForm(props) {
                             <option value="yoga">Yoga</option>
                             <option value="pilates">Pilates</option>
                             <option value="crossfit">Crossfit</option>
-                            <option value="spin">Spin</option>
+                            <option value="biking">Biking</option>
                             <option value="weightlifting">Weightlifting</option>
+                            <option value="martial arts">Martial Arts</option>
                             <option value="boxing">Boxing</option>  
-                            <option value="swimming">Swimming</option>                                   
+                            <option value="running">Running</option>
+                            <option value="swimming">Swimming</option> 
+                            <option value="adventure">Adventure</option>                                     
                         </select>
                     </label><br/><br/>
                     <label>Intensity Level<br/>

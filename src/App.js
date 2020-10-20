@@ -12,6 +12,9 @@ import InstructorConfirmation from './components/InstructorConfirmation'
 import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
 
+import CreateClass from './components/CreateClass'
+import InstructorSchedule from './components/InstructorSchedule'
+
 const NavContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
@@ -62,6 +65,8 @@ export default function App(props) {
                 </Route>
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
+                    <CreateClass />
+                    <InstructorSchedule />
                 </Route>
                 <Route path='/clients/signup'>
                     <ClientSignUp />
