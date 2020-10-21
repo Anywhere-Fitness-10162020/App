@@ -37,7 +37,7 @@ const AppContainer = styled.div`
  
   
 const App = (props) => {
-    const {loggedIn} = props;
+    const {loggedIn, role} = props;
     return(
     <>
         <NavContainer>
@@ -49,6 +49,7 @@ const App = (props) => {
                 {/* <NavLink to='/public'>Classes Available</NavLink> */}
                 {loggedIn ? <LogoutButton /> : null }
             </nav>
+            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
             {/* <nav className="testing">
                 <NavLink to='/instructors/home'>View: Instructor</NavLink>
                 <NavLink to='/clients/home'>View: Client</NavLink>
