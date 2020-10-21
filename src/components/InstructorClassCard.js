@@ -27,7 +27,7 @@ const ClassContainer = styled.div`
         margin: 2% 0;
         padding: 0;
     }
-
+ 
 `;
 
 const ClassInfo = styled.div`
