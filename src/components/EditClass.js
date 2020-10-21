@@ -13,25 +13,19 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    /* border: 1px solid red; */
-
-    margin: 4%;
-    padding: 2%;
-    /* border: 1px solid #333; */
     border-radius: 10px;
-    /* box-shadow: 5px 5px 20px #000; */
-    /* background-color: #333; */
     color: #fff;
     font-weight: 300;
     font-size: 1.5rem;
     letter-spacing: 2px;
-    line-height: 1.6rem;
+    line-height: 1.6rem;    
+    padding: 2rem;
 
     form{
         display: flex;
         flex-direction: row nowrap;
         justify-content: space-between;
-        padding: .5rem;
+        width:100%;
     }    
 
     input, select {
@@ -45,10 +39,8 @@ const FormContainer = styled.div`
     }
 
     .editBtn, button {
-        height:3.5rem;
-    }
-    form {
-        width:100%;
+        height: 6rem;
+        padding: 1%;
     }
 `;
 
@@ -74,7 +66,7 @@ export default function EditForm(props) {
 
     const {class_city, class_duration,
         class_intensity_level, class_name, class_timezone,
-        max_attendees, start_time, type, getCards, id} = props;
+        max_attendees, start_time, type, getCards, handleEdit, id} = props;
 
     //Default Form Values
     const defaultFormValues = {
@@ -145,7 +137,7 @@ export default function EditForm(props) {
         console.log(newClass)
         
         axiosWithAuth()
-            .post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
+            .put(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}` , newClass)
             .then(res => {
                 console.log('Class edit successful ',res.data);
             })
@@ -153,7 +145,9 @@ export default function EditForm(props) {
                 console.log('Error editing class: ',err.data)
             })
 
+        handleEdit(event);
         setFormValues(defaultFormValues);
+        getCards();
     };
 
 
@@ -282,7 +276,7 @@ export default function EditForm(props) {
                     
                     
                     </div>
-                    <button className='editBtn' disabled={disabled}>Submit</button>
+                    <button className='editBtn' disabled={disabled}>Confirm Changes</button>
             </form>
         </FormContainer>
     )
