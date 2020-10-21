@@ -29,13 +29,6 @@ const ScheduleContainer = styled.div`
         font-size: 2rem;
     }
 
-    form {
-        display: flex;
-        flex-direction: row nowrap;
-        justify-content: space-between;
-        padding: 2%;
-    }
-
     button {
         padding: 1% 2%;
         font-size: 1.6rem;

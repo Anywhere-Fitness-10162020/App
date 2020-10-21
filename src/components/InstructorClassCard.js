@@ -48,6 +48,11 @@ const ClassInfo = styled.div`
         /* border: 1px solid red;     */
     }
 
+    div.edit {
+        width: 100%;
+        /* border: 1px solid red;     */
+    }
+
     img {
         width: 100%;      
     }
@@ -73,7 +78,8 @@ export default function InstructorClassCard(props) {
 
     //State if user hit edit button
     const [edit, setEdit] = useState(false);
-        
+    
+    
 
     //Delete Handler    
     const handleDelete = (e) => {
@@ -100,6 +106,8 @@ export default function InstructorClassCard(props) {
         <ClassContainer>    
            {edit ? <h3>Edit Class</h3> : <h3>{class_name}</h3> }
             <ClassInfo>
+
+                {/*Displays specific image / info per class type. If in edit mode show none*/}
                 {edit 
                     ? 
                         null
@@ -118,7 +126,6 @@ export default function InstructorClassCard(props) {
                             {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
 
                         </div>
-
                         <div className="col">
                                 <p>Type: {type}</p>
                                 <p>Class Duration: {class_duration}</p>
@@ -127,12 +134,13 @@ export default function InstructorClassCard(props) {
                                 <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
                                 <p>City: {class_city}</p> 
                         </div>
-
                         </>
                 }
-                <div>
-                    {edit
+
+                {/*If edit button is clicked, show EditClass form*/}               
+                {edit
                     ?   
+                        <div className="edit">
                         <EditClass
                             class_city={class_city}
                             class_duration={class_duration}
@@ -143,12 +151,15 @@ export default function InstructorClassCard(props) {
                             start_time={start_time}
                             type={type}
                             id={id}
+                            getCards = {getCards}
+                            handleEdit = {handleEdit}
                         />
-                    :null}
-                </div>                
+                        </div>
+                    : null
+                }                               
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleEdit} disabled={edit}>Edit</button>
         </ClassContainer>
     )
 }
