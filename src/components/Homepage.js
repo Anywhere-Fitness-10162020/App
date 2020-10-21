@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const HomepageContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
@@ -8,6 +9,10 @@ const HomepageContainer = styled.div`
     margin: auto;
     color: #fff;
 
+    li {
+        margin: 1% 2%;
+        list-style: circle;
+    }
 
     .hero {
         background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
@@ -81,30 +86,30 @@ export default function Homepage(props) {
             <div className="info2">
                 <h2>Classes </h2>
                 <p>
-                Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-                magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
-                Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
-                 Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
-                 Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-                magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
-                Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
-                 Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
-                 Nullam et orci eu lorem consequat tincidunt vivamus et sagittis
-                magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna.
-                Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor.
-                 Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
+                    We offer high quality classes in the following areas:
+                    <ul>
+                        <li>Yoga</li>
+                        <li>Pilates</li>
+                        <li>Biking</li>
+                        <li>Swimming</li>
+                        <li>Crossfit</li>
+                        <li>Martial Arts</li>
+                        <li>Running</li>
+                        <li>Boxing</li>
+                        <li>Weightlifting</li>
+                    </ul>
                 </p>
             </div>
             <div className="info3">
                 <h2>Experienced Instructors</h2>     
                 <InstructorContainer>
                     <div>
-                        <h3>Austin</h3>
-                        <img src='/assets/Austin.png' className="instructor" alt="Austin"></img>
-                    </div>
-                    <div>
                         <h3>Eric</h3>
                         <img src='/assets/Eric.png' className="instructor" alt="Eric"></img>
+                    </div>                    
+                    <div>
+                        <h3>Austin</h3>
+                        <img src='/assets/Austin.png' className="instructor" alt="Austin"></img>
                     </div>
                     <div>
                         <h3>Suzanne</h3>
