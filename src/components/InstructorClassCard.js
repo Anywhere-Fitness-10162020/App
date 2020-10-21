@@ -1,6 +1,6 @@
-import Axios from 'axios';
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { axiosWithAuth } from '../api/axiosWithAuth';
 import EditClass from './EditClass'
 
 
@@ -79,13 +79,14 @@ export default function InstructorClassCard(props) {
     const handleDelete = (e) => {
         e.preventDefault();
 
-        Axios.delete(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`)
+        axiosWithAuth()
+            .delete(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`)
             .then(res => {
                 getCards();
-                console.log(res.data)
+                console.log('Delete Successful ',res.data)
             })
             .catch(err => {
-                console.log(err.data)
+                console.log('Delete failed: ', err.data)
             })
     }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import {axiosWithAuth} from '../api/axiosWithAuth';
 import styled from 'styled-components'
 import InstructorClassCard from './InstructorClassCard'
 
@@ -62,16 +62,18 @@ export default function InstructorSchedule(props) {
     const [classes, setClasses] = useState(defaultClass);
 
     const getCards = () => {
-        axios.get('https://anywherefitnesswebapi.herokuapp.com/api/classes')
-        .then(res => {
-            //Store the array of classes
-            const classArray = res.data;
-            setClasses(classArray)
-            console.log(res.data);
-        })
-        .catch(err => {
-            console.log(err.data)
-        })
+        
+        axiosWithAuth()        
+        .get('https://anywherefitnesswebapi.herokuapp.com/api/classes')
+            .then(res => {
+                //Store the array of classes
+                const classArray = res.data;
+                setClasses(classArray)
+                console.log('Classes displayed ',res.data);
+            })
+            .catch(err => {
+                console.log('Error displaying classes: ', err.data)
+            })
     }
 
     useEffect(() => {
