@@ -13,7 +13,7 @@ import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
 import InstructorSchedule from './components/InstructorSchedule'
 
-
+ 
 
 const NavContainer = styled.div`
     display: flex;
