@@ -13,18 +13,42 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    display: flex;
-    flex-flow: row nowrap;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
-    input {
-        width: 100%;
+    margin: 4%;
+    padding: 2%;
+    /* border: 1px solid #333; */
+    border-radius: 10px;
+    /* box-shadow: 5px 5px 20px #000; */
+    /* background-color: #333; */
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    line-height: 1.6rem;
+
+    form{
+        display: flex;
+        flex-direction: row nowrap;
+        justify-content: space-between;
+        padding: .5rem;
+    }    
+
+    input, select {
+        width: 80%;
+        padding: .7rem;
+        margin: .5rem
+    }
+    
+    label {
+        margin: .5rem;
     }
 
-    .editBtn {
-        border-radius: 10px;
-        padding: 4%;
-        font-weight: 700;
+    .editBtn, button {
+        height:3.5rem;
+    }
+    form {
+        width:100%;
     }
 `;
 
@@ -98,7 +122,7 @@ export default function EditForm(props) {
             .then(valid => setErrors({ ...errors, [name]: '' }))
             .catch(error => setErrors({ ...errors, [name]: error.errors[0] }))
         
-
+ 
         setFormValues({ ...formValues, [name]: valueToUse });
     };
 
@@ -226,13 +250,16 @@ export default function EditForm(props) {
                             <option value="20:00:00">8 PM</option>
                             <option value="21:00:00">9 PM</option>                               
                         </select>
+                    </label>
+                    <label>Time Zone:<br />
                         <select name="class_timezone" value={formValues.class_timezone} onChange={handleChange}>
                             <option value="">Select your time zone</option>
                             <option value="Eastern">Eastern</option>
                             <option value="Mountain">Mountain</option>
                             <option value="Pacific">Pacific</option>                    
                         </select>
-                    </label><br/>
+                    </label>
+                    <br/>
                     <label>Date<br/>
                         <input
                             type="date"
