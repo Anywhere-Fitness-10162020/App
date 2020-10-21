@@ -159,7 +159,7 @@ export default function InstructorClassCard(props) {
                 }                               
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
-            <button onClick={handleEdit} disabled={edit}>Edit</button>
+            { edit ? <button onClick={handleEdit}>Cancel</button> : <button onClick={handleEdit}>Edit</button> }
         </ClassContainer>
     )
 }
