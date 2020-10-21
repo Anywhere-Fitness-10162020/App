@@ -73,8 +73,6 @@ const InstructorForm = (props) => {
     //Setup-----------------------------    
     const {userLogin}=props;
 
-
-
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
 
@@ -93,7 +91,9 @@ const InstructorForm = (props) => {
             .then(valid => setDisabled(!valid));
     }, [formValues])
 
-    //Handlers 
+
+
+    //Change Handler 
     const handleChange = (event) => {
         //destructure event.target
         const { name, value, type, checked } = event.target;
@@ -112,6 +112,9 @@ const InstructorForm = (props) => {
         setFormValues({ ...formValues, [name]: valueToUse });
     };
 
+
+
+    //Submit Handler
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();

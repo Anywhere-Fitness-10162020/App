@@ -35,6 +35,8 @@ const ScheduleContainer = styled.div`
         font-weight: 700;
     }
 `;
+
+
 //Default Form Values
 const defaultClass = [{
     id: '',
@@ -51,9 +53,10 @@ const defaultClass = [{
 
 
 export default function InstructorSchedule(props) {   
-        
+    //Classes state    
     const [classes, setClasses] = useState(defaultClass);
 
+    //Get Card Functionality
     const getCards = () => {
         
         axiosWithAuth()        
@@ -69,6 +72,8 @@ export default function InstructorSchedule(props) {
             })
     }
 
+
+    //Use Effect Hook
     useEffect(() => {
         getCards();
     }, []);
