@@ -12,8 +12,9 @@ import InstructorConfirmation from './components/InstructorConfirmation'
 import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
 import InstructorSchedule from './components/InstructorSchedule'
-
-
+import PrivateRoute from './api/PrivateRoute'
+import {connect} from 'react-redux'
+ 
 
 const NavContainer = styled.div`
     display: flex;
@@ -35,50 +36,57 @@ const AppContainer = styled.div`
 `;
  
   
-export default function App(props) {
+const App = (props) => {
+    const {loggedIn, role} = props;
     return(
     <>
         <NavContainer>
             <nav>                
                 <h1>Anywhere Fitness</h1>
                 <NavLink to='/'>Home</NavLink>
-                <NavLink to='/clients'>Clients</NavLink>
-                <NavLink to='/instructors'>Instructors</NavLink>
-                <NavLink to='/public'>Classes Available</NavLink>
+                {loggedIn ? <NavLink to='/clients/home'>Clients</NavLink> : <NavLink to='/clients'>Clients</NavLink>}
+                {loggedIn && role === "instructor" ? <NavLink to='/instructors/home'>Instructors</NavLink> : <NavLink to='/instructors'>Instructors</NavLink>}
+                {loggedIn ? <LogoutButton /> : null }
             </nav>
-            <nav className="testing">
+            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            {/* <nav className="testing">
                 <NavLink to='/instructors/home'>View: Instructor</NavLink>
                 <NavLink to='/clients/home'>View: Client</NavLink>
-                <LogoutButton />
-            </nav>
+            </nav> */}
         </NavContainer>
         <AppContainer>
             <Switch>
-                <Route path='/instructors/home' >
-                    <InstructorHome />
-                </Route>
-                <Route path='/clients/home' >
-                    <ClientHome />
-                </Route>
+
+                {/* Login-only sections */}
+                <PrivateRoute exact path='/instructors/home' component={InstructorHome} />
+                <PrivateRoute exact path='/clients/home' component={ClientHome} />
+
+                {/* Public sections */}
                 <Route path='/instructors/confirmation'>
                     <InstructorConfirmation />
                 </Route>
+
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
-                    <InstructorSchedule />
+                    {/* <InstructorSchedule /> */}
                 </Route>
+
                 <Route path='/clients/signup'>
                     <ClientSignUp />
                 </Route>
+
                 <Route path='/instructors'>
                     <InstructorSignIn />
                 </Route>
+
                 <Route path='/clients'>
                     <ClientSignIn />
                 </Route>
-                <Route path='/public'>
+
+                {/* <Route path='/public'>
                     <ClassesPublic />
-                </Route>
+                </Route> */}
+
                 <Route path='/'>
                     <Homepage />
                 </Route>
@@ -86,6 +94,15 @@ export default function App(props) {
             </Switch>
         
         </AppContainer>
-     </>
-     )
+    </>
+)
 }
+
+const mapStateToProps = (state) => {
+    return {
+        loggedIn: state.loggedIn,
+        role: state.role
+    }
+}
+
+export default connect (mapStateToProps,null)(App)
