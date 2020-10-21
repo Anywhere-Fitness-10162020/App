@@ -22,6 +22,7 @@ const ClientSignUp = (props) => {
         password:"",
         email:"",
         role:"client",
+        password2:""
     };
     const [newUser, setNewUser] = useState(initialState);
 
