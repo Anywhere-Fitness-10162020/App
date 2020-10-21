@@ -44,9 +44,8 @@ const App = (props) => {
             <nav>                
                 <h1>Anywhere Fitness</h1>
                 <NavLink to='/'>Home</NavLink>
-                <NavLink to='/clients'>Clients</NavLink>
-                <NavLink to='/instructors'>Instructors</NavLink>
-                {/* <NavLink to='/public'>Classes Available</NavLink> */}
+                {loggedIn ? <NavLink to='/clients/home'>Clients</NavLink> : <NavLink to='/clients'>Clients</NavLink>}
+                {loggedIn && role === "instructor" ? <NavLink to='/instructors/home'>Instructors</NavLink> : <NavLink to='/instructors'>Instructors</NavLink>}
                 {loggedIn ? <LogoutButton /> : null }
             </nav>
             <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
