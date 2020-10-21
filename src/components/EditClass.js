@@ -98,7 +98,7 @@ export default function EditForm(props) {
             .then(valid => setErrors({ ...errors, [name]: '' }))
             .catch(error => setErrors({ ...errors, [name]: error.errors[0] }))
         
-
+ 
         setFormValues({ ...formValues, [name]: valueToUse });
     };
 
