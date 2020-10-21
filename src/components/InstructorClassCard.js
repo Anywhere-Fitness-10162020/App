@@ -78,7 +78,8 @@ export default function InstructorClassCard(props) {
 
     //State if user hit edit button
     const [edit, setEdit] = useState(false);
-        
+    
+    
 
     //Delete Handler    
     const handleDelete = (e) => {
@@ -156,7 +157,7 @@ export default function InstructorClassCard(props) {
                 }                               
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
-            <button onClick={handleEdit}>Edit</button>
+            <button onClick={handleEdit} disabled={edit}>Edit</button>
         </ClassContainer>
     )
 }
