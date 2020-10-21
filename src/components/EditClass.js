@@ -13,25 +13,20 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    /* border: 1px solid red; */
+    border: 1px solid red;
 
-    margin: 4%;
-    padding: 2%;
-    /* border: 1px solid #333; */
     border-radius: 10px;
-    /* box-shadow: 5px 5px 20px #000; */
-    /* background-color: #333; */
     color: #fff;
     font-weight: 300;
     font-size: 1.5rem;
     letter-spacing: 2px;
-    line-height: 1.6rem;
+    line-height: 1.6rem;    
+    padding: 2rem;
 
     form{
         display: flex;
         flex-direction: row nowrap;
         justify-content: space-between;
-        padding: .5rem;
         width:100%;
     }    
 
@@ -143,7 +138,7 @@ export default function EditForm(props) {
         console.log(newClass)
         
         axiosWithAuth()
-            .post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
+            .put(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`, newClass)
             .then(res => {
                 console.log('Class edit successful ',res.data);
             })
