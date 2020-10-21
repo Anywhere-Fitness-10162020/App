@@ -138,7 +138,7 @@ export default function EditForm(props) {
         console.log(newClass)
         
         axiosWithAuth()
-            .put(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}`, newClass)
+            .put(`https://anywherefitnesswebapi.herokuapp.com/api/classes/${id}` , newClass)
             .then(res => {
                 console.log('Class edit successful ',res.data);
             })
