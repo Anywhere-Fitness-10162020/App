@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index.js';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
-import {Link} from 'react-router-dom'
 import errors from './src/validateInfo'
 import './Form.css';
+import {saveToken} from '../api/helpers';
  
 const ClientSignUp = (props) => {
     //Setup-----------------------------    
@@ -49,9 +48,29 @@ const ClientSignUp = (props) => {
             .post(newUserApi, newUserPost)
             .then(res =>{
                 console.log("Signup successful:", res.data);
-                userLogin("client");
+                console.log("Logging in... ");
+                
+                const newUserLogin = {...newUserPost}
+                delete newUserLogin.password2
+                delete newUserLogin.email
+                console.log("New user login: ",newUserLogin);
+                axios
+                  .post('https://anywherefitnesswebapi.herokuapp.com/api/auth/login', newUserLogin)
+                  .then((res) => {
+                    console.log("result: ", res.data);
+                    //set global state
+                    userLogin("client");
+                    saveToken(res.data.token);
+                    //push to client homepage
+                    history.push(`clients/home`);
+                  })
+                  .catch((err) => {
+                    console.log("Login error: ", err);
+                  });
+                
+                // userLogin("client");
                 //usage: userLogin("roleName")
-                history.push(`../clients/home`);
+                // history.push(`../clients/home`);
 
             })
             .catch(err=>{
