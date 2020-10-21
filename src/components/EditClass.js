@@ -66,7 +66,7 @@ export default function EditForm(props) {
 
     const {class_city, class_duration,
         class_intensity_level, class_name, class_timezone,
-        max_attendees, start_time, type, getCards, id} = props;
+        max_attendees, start_time, type, getCards, handleEdit, id} = props;
 
     //Default Form Values
     const defaultFormValues = {
@@ -145,6 +145,7 @@ export default function EditForm(props) {
                 console.log('Error editing class: ',err.data)
             })
 
+        handleEdit(event);
         setFormValues(defaultFormValues);
     };
 

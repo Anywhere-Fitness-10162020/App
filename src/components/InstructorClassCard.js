@@ -151,6 +151,7 @@ export default function InstructorClassCard(props) {
                             start_time={start_time}
                             type={type}
                             id={id}
+                            handleEdit = {handleEdit}
                         />
                         </div>
                     : null
