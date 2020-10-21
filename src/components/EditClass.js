@@ -147,6 +147,7 @@ export default function EditForm(props) {
 
         handleEdit(event);
         setFormValues(defaultFormValues);
+        getCards();
     };
 
 

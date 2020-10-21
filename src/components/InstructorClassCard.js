@@ -151,6 +151,7 @@ export default function InstructorClassCard(props) {
                             start_time={start_time}
                             type={type}
                             id={id}
+                            getCards = {getCards}
                             handleEdit = {handleEdit}
                         />
                         </div>
