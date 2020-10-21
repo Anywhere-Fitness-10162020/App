@@ -32,6 +32,7 @@ const FormContainer = styled.div`
         flex-direction: row nowrap;
         justify-content: space-between;
         padding: .5rem;
+        width:100%;
     }    
 
     input, select {
@@ -46,9 +47,6 @@ const FormContainer = styled.div`
 
     .editBtn, button {
         height:3.5rem;
-    }
-    form {
-        width:100%;
     }
 `;
 
