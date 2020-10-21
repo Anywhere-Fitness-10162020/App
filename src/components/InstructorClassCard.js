@@ -39,7 +39,7 @@ const ClassInfo = styled.div`
         width: 100%;
     }
 
-    div {
+    div.col {
         display: flex;
         flex-flow: row wrap;
         width: 40%;
@@ -103,8 +103,9 @@ export default function InstructorClassCard(props) {
                 {edit 
                     ? 
                         null
-                    :
-                        <div>
+                    :   
+                        <>
+                        <div className="col">
                             {type === 'yoga' ? <img src='/assets/yoga.jpg' /> : null }
                             {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' /> : null }
                             {type === 'swimming' ? <img src='/assets/swimming.jpg' /> : null }
@@ -115,7 +116,19 @@ export default function InstructorClassCard(props) {
                             {type === 'boxing' ? <img src='/assets/boxing.jpg' /> : null }
                             {type === 'biking' ? <img src='/assets/biking.jpg' /> : null }
                             {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
+
                         </div>
+
+                        <div className="col">
+                                <p>Type: {type}</p>
+                                <p>Class Duration: {class_duration}</p>
+                                <p>Intensity: {class_intensity_level}</p>
+                                <p>Date: {start_time.split(' ', 1)}</p>
+                                <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
+                                <p>City: {class_city}</p> 
+                        </div>
+
+                        </>
                 }
                 <div>
                     {edit
@@ -131,16 +144,7 @@ export default function InstructorClassCard(props) {
                             type={type}
                             id={id}
                         />
-                    :   <>
-                            <p>Type: {type}</p>
-                            <p>Class Duration: {class_duration}</p>
-                            <p>Intensity: {class_intensity_level}</p>
-                            <p>Date: {start_time.split(' ', 1)}</p>
-                            <p>Time: {start_time.split(' ')[1]} {class_timezone}</p>
-                            <p>City: {class_city}</p> 
-                            <p>Attendees: {max_attendees}</p>
-                        </>
-                    }
+                    :null}
                 </div>                
             </ClassInfo>             
             <button onClick={handleDelete}>Delete</button>
