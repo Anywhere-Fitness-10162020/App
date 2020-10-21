@@ -41,7 +41,8 @@ const FormContainer = styled.div`
     }
 
     .editBtn, button {
-        height:3.5rem;
+        height: 6rem;
+        padding: 1%;
     }
 `;
 
@@ -275,7 +276,7 @@ export default function EditForm(props) {
                     
                     
                     </div>
-                    <button className='editBtn' disabled={disabled}>Submit</button>
+                    <button className='editBtn' disabled={disabled}>Confirm Changes</button>
             </form>
         </FormContainer>
     )
