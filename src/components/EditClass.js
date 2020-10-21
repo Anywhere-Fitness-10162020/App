@@ -13,14 +13,14 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     margin: 4%;
     padding: 2%;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     border-radius: 10px;
-    box-shadow: 5px 5px 20px #000;
-    background-color: #333;
+    /* box-shadow: 5px 5px 20px #000; */
+    /* background-color: #333; */
     color: #fff;
     font-weight: 300;
     font-size: 1.5rem;
@@ -45,11 +45,7 @@ const FormContainer = styled.div`
     }
 
     .editBtn, button {
-        padding: 1% 2%;
-        margin: 2%;
-        font-size: 1.6rem;
-        font-weight: 700;
-        border:1px solid red;
+        height:3.5rem;
     }
     form {
         width:100%;

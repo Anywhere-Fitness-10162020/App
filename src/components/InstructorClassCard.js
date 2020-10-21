@@ -52,7 +52,7 @@ const ClassInfo = styled.div`
         width: 100%;      
     }
 
-    button {
+    .col button {
         border-radius: 10px;
         padding: 1%;
         height: 10px;
