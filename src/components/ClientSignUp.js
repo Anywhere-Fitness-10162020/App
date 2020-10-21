@@ -39,12 +39,9 @@ const ClientSignUp = (props) => {
         e.preventDefault();
 
         //Signup Post------------------
-        const newUserTest = {...newUser};
-        delete newUserTest.password2;
-        console.log(newUserTest);
-        // const newUserPost = delete newUserTest.password2;
-        // const newUserPost = newUserTest.map(({password2, ...rest})=>rest);
-        const newUserPost = {};
+        const newUserPost = {...newUser};
+        delete newUserPost.password2;
+        console.log(newUserPost);
 
         const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
         console.log("Submitting registration...", newUserPost);
