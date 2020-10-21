@@ -21,7 +21,7 @@ const ClientSignUp = (props) => {
         username:"",
         password:"",
         email:"",
-        role:"attendee",
+        role:"client",
     };
     const [newUser, setNewUser] = useState(initialState);
 
@@ -38,7 +38,13 @@ const ClientSignUp = (props) => {
         e.preventDefault();
 
         //Signup Post------------------
-        const newUserPost = {...newUser};
+        const newUserTest = {...newUser};
+        delete newUserTest.password2;
+        console.log(newUserTest);
+        // const newUserPost = delete newUserTest.password2;
+        // const newUserPost = newUserTest.map(({password2, ...rest})=>rest);
+        const newUserPost = {};
+
         const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
         console.log("Submitting registration...", newUserPost);
         axios
