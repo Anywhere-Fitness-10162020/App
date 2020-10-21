@@ -13,8 +13,6 @@ const ErrorContainer = styled.div`
 `;
 
 const FormContainer = styled.div`
-    border: 1px solid red;
-
     border-radius: 10px;
     color: #fff;
     font-weight: 300;
