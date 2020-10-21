@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+import {axiosWithAuth} from '../api/axiosWithAuth'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import createClassSchema from '../schemas/instructor_class_schema'
@@ -153,12 +153,13 @@ export default function InstructorForm(props) {
 
         console.log(newClass)
         
-        axios.post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
+        axiosWithAuth()
+            .post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
             .then(res => {
-                console.log(res.data);
+                console.log('Add Class Successful ',res.data);
             })
             .catch(err => {
-                console.log(err.data)
+                console.log('Error adding class: ',err.data)
             })
 
         setFormValues(defaultFormValues);
