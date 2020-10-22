@@ -37,7 +37,7 @@ const AppContainer = styled.div`
 const App = (props) => {
     const {loggedIn, role} = props;
     return(
-    <>
+    <> 
         <NavContainer>
             <nav>                
                 <h1>Anywhere Fitness</h1>
@@ -46,7 +46,7 @@ const App = (props) => {
                 {loggedIn && role === "instructor" ? <NavLink to='/instructors/home'>Instructors</NavLink> : <NavLink to='/instructors'>Instructors</NavLink>}
                 {loggedIn ? <LogoutButton /> : null }
             </nav>
-            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            {/* <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p> */}
         </NavContainer>
         <AppContainer>
             <Switch>
