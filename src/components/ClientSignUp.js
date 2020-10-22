@@ -4,9 +4,11 @@ import errors from './src/validateInfo'
 import './Form.css';
 import {apiLogin} from '../api/helpers';
 import {useHistory} from 'react-router-dom';
-
+import {connect} from 'react-redux'
+import {newOnboard} from '../actions/index';
  
 const ClientSignUp = (props) => {
+    const {newOnboard} = props;
     //Routing-----------------------------
     const history=useHistory();
     // const {path}=useRouteMatch();
@@ -35,8 +37,8 @@ const ClientSignUp = (props) => {
         apiLogin("register",newUser)
           .then(res=>{
             console.log("Promise success: ",res)
-            history.push(`../clients/home`)
-    
+            newOnboard();
+            setTimeout(history.push(`../clients/home`),1000)
           })
           .catch(err=>{
             console.log("Promise failed: ",err)
@@ -115,7 +117,14 @@ const ClientSignUp = (props) => {
     )
     }
 
-export default ClientSignUp;
+const mapStateToProps = state => {
+  return {
+      loggedIn:state.loggedIn,
+      role:state.role
+  }
+}    
+
+export default connect(mapStateToProps,{newOnboard})(ClientSignUp);
 // <div>
         //     <h2>Client Form</h2>
         //     <h3>Sign up:</h3>

@@ -125,7 +125,7 @@ const InstructorForm = (props) => {
                 //check that actual role is instructor before redirecting to instructors page
                 //or add an auto redirect out of instructors page if user is not an instructor
                 newOnboard();
-                history.push(`../instructors/home`);
+                setTimeout(history.push(`../instructors/home`),1000);
         
             })
             .catch(err=>{
