@@ -21,7 +21,7 @@ export const apiLogin = (userAction, userObj) => {
     const apiLogin = `${apiBase}/login`;
 
     //user data sent to registration api:
-    const userRegister = {
+    const userInfoRegister = {
         username:userObj.username,
         password:userObj.password,
         email:userObj.email,
@@ -29,17 +29,17 @@ export const apiLogin = (userAction, userObj) => {
     }
 
     //user data sent to login api:
-    const userLogin={
+    const userInfoLogin={
         username:userObj.username,
         password:userObj.password
     }
     
     //login only:
-    const axiosLogin = (userLogin) => {
+    const axiosLogin = (userInfoLogin) => {
         console.log("----------------------")
-        console.log("Axios Login Function: ", userLogin)
+        console.log("Axios Login Function: ", userInfoLogin)
         axios
-            .post(apiLogin,userLogin)
+            .post(apiLogin,userInfoLogin)
             .then((res)=>{
                 //confirmation details
                 console.log("Axios login successful");
@@ -49,6 +49,9 @@ export const apiLogin = (userAction, userObj) => {
                 //save token to localstorage
                 console.log('Token: ',res.data.token);
                 saveToken(res.data.token);
+                
+                //dispatch login action to reducer
+                store.dispatch(testAction('Stack Overflow'));
 
                 return res;
             })
@@ -59,11 +62,11 @@ export const apiLogin = (userAction, userObj) => {
     }
 
     //signup then auto-login on successful registration:
-    const axiosRegister = (userRegister,userLogin) => {
+    const axiosRegister = (userInfoRegister,userInfoLogin) => {
         console.log("----------------------")
-        console.log("Axios Register Function: ", userRegister)
+        console.log("Axios Register Function: ", userInfoRegister)
         axios
-            .post(apiRegister,userRegister)
+            .post(apiRegister,userInfoRegister)
             .then((res)=>{
                 //confirmation details
                 console.log("Axios registration successful");
@@ -71,7 +74,7 @@ export const apiLogin = (userAction, userObj) => {
                 console.log('Registration server response: ',res);
 
                 //send userinfo to Login function
-                axiosLogin(userLogin);
+                axiosLogin(userInfoLogin);
 
             })
             .catch(err=>{
@@ -82,11 +85,11 @@ export const apiLogin = (userAction, userObj) => {
 
     if(userAction==="register"){
         return(
-            axiosRegister(userRegister, userLogin)
+            axiosRegister(userInfoRegister, userInfoLogin)
             );
     }else if(userAction==="login"){
         return(
-            axiosLogin(userLogin)
+            axiosLogin(userInfoLogin)
             );
     }else{
         return("Axios error, check parameters. userAction must be 'login' or 'register' ");
