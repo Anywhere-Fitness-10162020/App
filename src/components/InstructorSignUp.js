@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
-import axios from 'axios'
+// import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
+import {apiLogin} from '../api/helpers';
 import {connect} from 'react-redux'
-import {userLogin} from '../actions/index.js'
 
 
 //Styled Components
@@ -56,7 +55,7 @@ const defaultFormValues = {
     username: '',
     email: '',    
     password: '',
-    auth_code: ''
+    role: ''
 }
 
 //Default Error State
@@ -64,14 +63,13 @@ const defaultErrors = {
     username: '',
     email: '',    
     password: '',
-    auth_code: ''
+    role: ''
 }
 
 
 
 const InstructorForm = (props) => {
-    //Setup-----------------------------    
-    const {userLogin}=props;
+    // const { loggedIn, role } = props;
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -83,7 +81,7 @@ const InstructorForm = (props) => {
     const [disabled, setDisabled] = useState(true)
 
     //Instantiate useHistory hook
-    const history = useHistory();
+    // const history = useHistory();
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
@@ -118,30 +116,28 @@ const InstructorForm = (props) => {
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
+        apiLogin("register", formValues);
 
-        const newInstructor = {
-            username: formValues.username,
-            password: formValues.password,
-            email: formValues.email,
-            role: formValues.auth_code
-        }
-        const newInstructorApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
-        
-        axios
-            .post(newInstructorApi, newInstructor)
-            .then(res => {
-                console.log(res.data);
-                userLogin("instructor");
-                history.push(`../instructors/home`);
-            })
-            .catch(err => {
-                console.log("Signup error: ", err);
-                console.log("Error posting data: ", newInstructor);
-                console.log("Attempted to post to: ", newInstructorApi);
-            })
+        // //------needs to be moved into axios promise:--------
+        // setFormValues(defaultFormValues);
+        // history.push('/instructors/confirmation')
 
-        setFormValues(defaultFormValues);
-        history.push('/instructors/confirmation')
+        // const resRedirect = () => {
+
+        // }   
+
+
+        // //------or async test state logic:--------
+
+        // const testTimer = () => {
+        //     if(role==="instructor" && loggedIn === true){
+        //         console.log("Login was successful, now do something");
+        //     }else{
+        //         console.log("Login was not successful, now display an error");
+        //     }
+        // }
+        // setTimeout(testTimer,500);
+
     };
 
 
@@ -185,8 +181,8 @@ const InstructorForm = (props) => {
                     <label>Auth Code<br/>
                         <input
                             type="text"
-                            name="auth_code"
-                            value={formValues.auth_code}
+                            name="role"
+                            value={formValues.role}
                             onChange={handleChange}
                         />
                     </label><br/><br/>
@@ -198,4 +194,10 @@ const InstructorForm = (props) => {
     )
 }
 
-export default connect(null,{userLogin})(InstructorForm);
+const mapStateToProps = state => {
+    return {
+        loggedIn:state.loggedIn,
+        role:state.role
+    }
+}
+export default connect(mapStateToProps,null)(InstructorForm);

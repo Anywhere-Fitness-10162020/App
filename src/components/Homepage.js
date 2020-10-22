@@ -87,18 +87,19 @@ export default function Homepage(props) {
                 <h2>Classes </h2>
                 <p>
                     We offer high quality classes in the following areas:
-                    <ul>
-                        <li>Yoga</li>
-                        <li>Pilates</li>
-                        <li>Biking</li>
-                        <li>Swimming</li>
-                        <li>Crossfit</li>
-                        <li>Martial Arts</li>
-                        <li>Running</li>
-                        <li>Boxing</li>
-                        <li>Weightlifting</li>
-                    </ul>
                 </p>
+                <ul>
+                    <li>Yoga</li>
+                    <li>Pilates</li>
+                    <li>Biking</li>
+                    <li>Swimming</li>
+                    <li>Crossfit</li>
+                    <li>Martial Arts</li>
+                    <li>Running</li>
+                    <li>Boxing</li>
+                    <li>Weightlifting</li>
+                </ul>
+                
             </div>
             <div className="info3">
                 <h2>Experienced Instructors</h2>     

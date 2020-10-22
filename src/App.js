@@ -9,9 +9,7 @@ import InstructorSignUp from './components/InstructorSignUp'
 import ClientHome from './components/ClientHome'
 import InstructorHome from './components/InstructorHome'
 import InstructorConfirmation from './components/InstructorConfirmation'
-import ClassesPublic from './components/ClassesPublic'
 import LogoutButton from './components/LogoutButton'
-import InstructorSchedule from './components/InstructorSchedule'
 import PrivateRoute from './api/PrivateRoute'
 import {connect} from 'react-redux'
  
@@ -49,10 +47,6 @@ const App = (props) => {
                 {loggedIn ? <LogoutButton /> : null }
             </nav>
             <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
-            {/* <nav className="testing">
-                <NavLink to='/instructors/home'>View: Instructor</NavLink>
-                <NavLink to='/clients/home'>View: Client</NavLink>
-            </nav> */}
         </NavContainer>
         <AppContainer>
             <Switch>
@@ -68,7 +62,6 @@ const App = (props) => {
 
                 <Route path='/instructors/signup'>
                     <InstructorSignUp />
-                    {/* <InstructorSchedule /> */}
                 </Route>
 
                 <Route path='/clients/signup'>
@@ -82,10 +75,6 @@ const App = (props) => {
                 <Route path='/clients'>
                     <ClientSignIn />
                 </Route>
-
-                {/* <Route path='/public'>
-                    <ClassesPublic />
-                </Route> */}
 
                 <Route path='/'>
                     <Homepage />
