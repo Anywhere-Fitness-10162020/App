@@ -5,7 +5,8 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import errors from './src/validateInfo'
 import './Form.css';
-import {saveToken} from '../api/helpers';
+import {saveToken, apiLogin} from '../api/helpers';
+
  
 const ClientSignUp = (props) => {
     //Setup-----------------------------    
@@ -80,9 +81,22 @@ const ClientSignUp = (props) => {
             });
         
     } 
+    
+    const testClick=()=>{
+
+    const testLoginUser = {...newUser}
+
+    console.log('testing apiLogin: ', testLoginUser);
+    apiLogin("register",testLoginUser)
+    
+    }
 
     //Return-----------------------------
     return(
+        <>
+        <div>
+          <button onClick={testClick}>Test</button>
+        </div>
        <div className="wrapper">
       <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
@@ -147,6 +161,7 @@ const ClientSignUp = (props) => {
       </form>
     </div>
     </div>
+    </>
     )
     }
 
