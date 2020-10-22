@@ -1,17 +1,12 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {userLogin} from '../actions/index.js';
-import {useHistory} from 'react-router-dom';
-import axios from 'axios';
-import {Link} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom';
 import errors from './src/validateInfo'
 import './Form.css';
+import {apiLogin} from '../api/helpers';
+import {useHistory} from 'react-router-dom';
+
  
 const ClientSignUp = (props) => {
-    //Setup-----------------------------    
-    const {userLogin}=props;
-    
     //Routing-----------------------------
     const history=useHistory();
     // const {path}=useRouteMatch();
@@ -37,33 +32,21 @@ const ClientSignUp = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        //Signup Post------------------
-        const newUserPost = {...newUser};
-        delete newUserPost.password2;
-        console.log(newUserPost);
-
-        const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
-        console.log("Submitting registration...", newUserPost);
-        axios
-            .post(newUserApi, newUserPost)
-            .then(res =>{
-                console.log("Signup successful:", res.data);
-                userLogin("client");
-                //usage: userLogin("roleName")
-                history.push(`../clients/home`);
-
-            })
-            .catch(err=>{
-                console.log("Signup error: ", err);
-                console.log("Error posting data: ", newUserPost);
-                console.log("Attempted to post to: ", newUserApi);
-            });
-        
+        apiLogin("register",newUser)
+          .then(res=>{
+            console.log("Promise success: ",res)
+            history.push(`../clients/home`)
+    
+          })
+          .catch(err=>{
+            console.log("Promise failed: ",err)
+          });
     } 
+  
 
     //Return-----------------------------
     return(
+        <>
        <div className="wrapper">
       <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
@@ -128,10 +111,11 @@ const ClientSignUp = (props) => {
       </form>
     </div>
     </div>
+    </>
     )
     }
 
-export default connect(null,{userLogin})(ClientSignUp);
+export default ClientSignUp;
 // <div>
         //     <h2>Client Form</h2>
         //     <h3>Sign up:</h3>
