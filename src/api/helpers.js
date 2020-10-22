@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {store} from '../index'
-import {testAction} from '../actions/index'
+import {testAction, userLogin} from '../actions/index'
 
 export const saveToken = (token) => {
     window.localStorage.setItem('token',token);
@@ -51,7 +51,17 @@ export const apiLogin = (userAction, userObj) => {
                 saveToken(res.data.token);
                 
                 //dispatch login action to reducer
-                store.dispatch(testAction('Stack Overflow'));
+                if(res.data.role === "instructor"){
+                    store.dispatch(
+                        userLogin("instructor")
+                    );
+                }else{
+                    store.dispatch(
+                        userLogin("client")
+                    );
+                }
+
+
 
                 return res;
             })

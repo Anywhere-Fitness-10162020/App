@@ -16,6 +16,7 @@ export const reducer = (state = initialState, action) => {
                 loggedIn:action.payload.loggedIn,
                 role:action.payload.role
             }
+            console.log("reducer: user logged in with role: ", action.payload.role);
             return userLoginState;
 
         case USER_LOGOUT:

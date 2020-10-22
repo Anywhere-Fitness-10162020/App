@@ -12,7 +12,7 @@ const instructorSignUpSchema = yup.object().shape({
     email: yup
         .string()
         .required('Please enter your email'),
-    auth_code: yup
+    role: yup
         .string()
         .required('Please enter your auth code')
 });

@@ -4,7 +4,7 @@ import {userLogin} from '../actions/index.js';
 import {useHistory} from 'react-router-dom';
 import errors from './src/validateInfo'
 import './Form.css';
-import {saveToken, apiLogin, testDispatch} from '../api/helpers';
+import {apiLogin} from '../api/helpers';
 
  
 const ClientSignUp = (props) => {
@@ -36,9 +36,8 @@ const ClientSignUp = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-  
-        apiLogin("register",newUser)
 
+        apiLogin("register",newUser)
 
         //----------------------------------------------------
         // //Signup Post------------------
@@ -83,20 +82,12 @@ const ClientSignUp = (props) => {
         //         console.log("Attempted to post to: ", newUserApi);
         //     });
         //----------------------------------------------------
-        
     } 
-    
-    const testClick=(e)=>{
-      e.preventDefault();
-      testDispatch();
-    }
   
+
     //Return-----------------------------
     return(
         <>
-        <div>
-          <button onClick={testClick}>Test</button>
-        </div>
        <div className="wrapper">
       <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>
