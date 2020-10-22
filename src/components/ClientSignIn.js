@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
-import errors from "./src/validateInfo";
+import { /*useHistory,*/ Link } from "react-router-dom";
+// import errors from "./src/validateInfo";
 import "./Form.css";
 import useForm from './src/useForm';
 import validateInfo from "./src/validateInfo";
@@ -9,8 +9,8 @@ import {apiLogin} from '../api/helpers';
 
 const ClientSignIn = (props) => {
 
-  //Routing-----------------------------
-  const history = useHistory();
+  // //Routing-----------------------------
+  // const history = useHistory();
   // const {path}=useRouteMatch();
 
   //Form State-----------------------------
