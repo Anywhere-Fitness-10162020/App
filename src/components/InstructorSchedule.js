@@ -34,6 +34,12 @@ const ScheduleContainer = styled.div`
         font-size: 1.6rem;
         font-weight: 700;
     }
+
+    @media(max-width: 700px) {
+        h2 {
+            font-size: 3rem;
+        }
+    }
 `;
 
 
