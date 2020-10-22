@@ -31,3 +31,19 @@ export const userLogout=()=>{
         }
     }
 }
+
+export const SHOW_ONBOARD='SHOW_ONBOARD';
+
+export const showOnboard = () => {
+    return {
+        type:SHOW_ONBOARD
+    }
+}
+
+export const DISMISS_ONBOARD='DISMISS_ONBOARD';
+
+export const dismissOnboard=()=>{
+    return{
+        type:DISMISS_ONBOARD
+    }
+}
