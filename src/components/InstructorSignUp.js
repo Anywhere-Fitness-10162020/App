@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
 import {apiLogin} from '../api/helpers';
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 //Styled Components
 const ErrorContainer = styled.div`
@@ -69,6 +69,7 @@ const defaultErrors = {
 
 
 const InstructorForm = (props) => {
+    const history = useHistory();
     // const { loggedIn, role } = props;
 
     //Keep track of form values
@@ -116,27 +117,17 @@ const InstructorForm = (props) => {
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
-        apiLogin("register", formValues);
-
-        // //------needs to be moved into axios promise:--------
-        // setFormValues(defaultFormValues);
-        // history.push('/instructors/confirmation')
-
-        // const resRedirect = () => {
-
-        // }   
-
-
-        // //------or async test state logic:--------
-
-        // const testTimer = () => {
-        //     if(role==="instructor" && loggedIn === true){
-        //         console.log("Login was successful, now do something");
-        //     }else{
-        //         console.log("Login was not successful, now display an error");
-        //     }
-        // }
-        // setTimeout(testTimer,500);
+        apiLogin("register", formValues)
+            .then(res=>{
+                console.log("Promise success: ",res)
+                //check that actual role is instructor before redirecting to instructors page
+                //or add an auto redirect out of instructors page if user is not an instructor
+                history.push(`../instructors/home`)
+        
+            })
+            .catch(err=>{
+                console.log("Promise failed: ",err)
+            });
 
     };
 

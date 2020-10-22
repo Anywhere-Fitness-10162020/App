@@ -73,7 +73,7 @@ export const apiLogin = (userAction, userObj) => {
     const axiosRegister = (userInfoRegister,userInfoLogin) => {
         console.log("----------------------")
         console.log("Signing up...")
-        axios
+        return axios
             .post(apiRegister,userInfoRegister)
             .then((res)=>{
                 //confirmation details
