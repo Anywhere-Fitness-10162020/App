@@ -98,6 +98,8 @@ const defaultErrors = {
 
 export default function InstructorForm(props) {
 
+    const { getCards } = props;
+
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
 
@@ -141,14 +143,14 @@ export default function InstructorForm(props) {
 
         const newClass = {
             class_name: formValues.class_name,
-            class_duration: formValues.class_duration,
+            type: formValues.type,
+            start_time: `${formValues.class_date} ${formValues.start_time}`,
             class_intensity_level: formValues.class_intensity_level,
             class_city: formValues.class_city,
-            start_time: `${formValues.class_date} ${formValues.start_time}`,
-            class_timezone: formValues.class_timezone,
-            type: formValues.type,
+            attendee_count: 0,
             max_attendees: formValues.max_attendees,
-            instructor_id: formValues.id
+            class_duration: formValues.class_duration,
+            class_timezone: formValues.class_timezone
         }
 
         console.log(newClass)
@@ -156,6 +158,7 @@ export default function InstructorForm(props) {
         axiosWithAuth()
             .post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
             .then(res => {
+                getCards();
                 console.log('Add Class Successful ',res.data);
             })
             .catch(err => {
