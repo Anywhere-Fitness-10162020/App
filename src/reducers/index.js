@@ -1,5 +1,5 @@
 // import React from 'react';
-import { TEST_ACTION, USER_LOGIN, USER_LOGOUT, SHOW_ONBOARD, DISMISS_ONBOARD } from '../actions';
+import { TEST_ACTION, USER_LOGIN, USER_LOGOUT, NEW_ONBOARD, DISMISS_ONBOARD } from '../actions';
 
 const initialState={
     testKey:"",
@@ -28,12 +28,12 @@ export const reducer = (state = initialState, action) => {
             }
             return userLogoutState;
 
-        case SHOW_ONBOARD:
-            const showOnboardState={
+        case NEW_ONBOARD:
+            const newOnboardState={
                 ...state,
                 showOnboard:true
             }
-            return showOnboardState;
+            return newOnboardState;
 
         case DISMISS_ONBOARD:
             const dismissOnboardState={

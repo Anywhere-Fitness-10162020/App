@@ -32,11 +32,11 @@ export const userLogout=()=>{
     }
 }
 
-export const SHOW_ONBOARD='SHOW_ONBOARD';
+export const NEW_ONBOARD='NEW_ONBOARD';
 
-export const showOnboard = () => {
+export const newOnboard = () => {
     return {
-        type:SHOW_ONBOARD
+        type:NEW_ONBOARD
     }
 }
 
