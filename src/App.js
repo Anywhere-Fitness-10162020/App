@@ -27,6 +27,17 @@ const NavContainer = styled.div`
     nav {
         padding: 2%;
         width: 100%;
+    }
+    button{
+        padding: 1%;
+        font-weight: 700;
+        background-color:white;
+        font-family:sans-serif;
+        font-size:1.7rem;
+        border:none;
+        color:#F34213;
+        margin-left:1rem;
+
     }    
 `;
 
