@@ -64,7 +64,17 @@ const ClassInfo = styled.div`
         font-weight: 700;
     }
 
-    
+           
+    @media(max-width: 700px) {
+        flex-flow: column wrap;
+
+        div.col {
+            width: 100%;
+        }
+        img { 
+            width: 100%;
+        }
+    }
 `;
 
 
@@ -114,16 +124,16 @@ export default function InstructorClassCard(props) {
                     :   
                         <>
                         <div className="col">
-                            {type === 'yoga' ? <img src='/assets/yoga.jpg' /> : null }
-                            {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' /> : null }
-                            {type === 'swimming' ? <img src='/assets/swimming.jpg' /> : null }
-                            {type === 'running' ? <img src='/assets/running.jpg' /> : null }
-                            {type === 'pilates' ? <img src='/assets/pilates.jpg' /> : null }
-                            {type === 'martial arts' ? <img src='/assets/martialarts.jpg' /> : null }
-                            {type === 'crossfit' ? <img src='/assets/crossfit.jpg' /> : null }
-                            {type === 'boxing' ? <img src='/assets/boxing.jpg' /> : null }
-                            {type === 'biking' ? <img src='/assets/biking.jpg' /> : null }
-                            {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
+                            {type === 'yoga' ? <img src='/assets/yoga.jpg' alt='Yoga'/> : null }
+                            {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' alt='Weight Lifting'/> : null }
+                            {type === 'swimming' ? <img src='/assets/swimming.jpg' alt='Swimming'/> : null }
+                            {type === 'running' ? <img src='/assets/running.jpg' alt='Running'/> : null }
+                            {type === 'pilates' ? <img src='/assets/pilates.jpg' alt='Pilates'/> : null }
+                            {type === 'martial arts' ? <img src='/assets/martialarts.jpg' alt='Martial Arts'/> : null }
+                            {type === 'crossfit' ? <img src='/assets/crossfit.jpg' alt='Crossfit'/> : null }
+                            {type === 'boxing' ? <img src='/assets/boxing.jpg' alt='Boxing'/> : null }
+                            {type === 'biking' ? <img src='/assets/biking.jpg' alt='Biking'/> : null }
+                            {type === 'Adventure' ? <img src='/assets/adventure.jpg' alt='Adventure'/> : null }
 
                         </div>
                         <div className="col">
