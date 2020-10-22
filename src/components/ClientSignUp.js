@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {userLogin} from '../actions/index.js';
 import {useHistory} from 'react-router-dom';
-import axios from 'axios';
 import errors from './src/validateInfo'
 import './Form.css';
 import {saveToken, apiLogin} from '../api/helpers';
@@ -37,66 +36,60 @@ const ClientSignUp = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
+  
+        apiLogin("register",newUser)
 
-        //Signup Post------------------
-        const newUserPost = {...newUser};
-        delete newUserPost.password2;
-        console.log(newUserPost);
+        
+        //----------------------------------------------------
+        // //Signup Post------------------
+        // const newUserPost = {...newUser};
+        // delete newUserPost.password2;
+        // console.log(newUserPost);
 
-        const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
-        console.log("Submitting registration...", newUserPost);
-        axios
-            .post(newUserApi, newUserPost)
-            .then(res =>{
-                console.log("Signup successful:", res.data);
-                console.log("Logging in... ");
+        // const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
+        // console.log("Submitting registration...", newUserPost);
+        // axios
+        //     .post(newUserApi, newUserPost)
+        //     .then(res =>{
+        //         console.log("Signup successful:", res.data);
+        //         console.log("Logging in... ");
                 
-                const newUserLogin = {...newUserPost}
-                delete newUserLogin.password2
-                delete newUserLogin.email
-                console.log("New user login: ",newUserLogin);
-                axios
-                  .post('https://anywherefitnesswebapi.herokuapp.com/api/auth/login', newUserLogin)
-                  .then((res) => {
-                    console.log("result: ", res.data);
-                    //set global state
-                    userLogin("client");
-                    saveToken(res.data.token);
-                    //push to client homepage
-                    history.push(`clients/home`);
-                  })
-                  .catch((err) => {
-                    console.log("Login error: ", err);
-                  });
+        //         const newUserLogin = {...newUserPost}
+        //         delete newUserLogin.password2
+        //         delete newUserLogin.email
+        //         console.log("New user login: ",newUserLogin);
+        //         axios
+        //           .post('https://anywherefitnesswebapi.herokuapp.com/api/auth/login', newUserLogin)
+        //           .then((res) => {
+        //             console.log("result: ", res.data);
+        //             //set global state
+        //             userLogin("client");
+        //             saveToken(res.data.token);
+        //             //push to client homepage
+        //             history.push(`clients/home`);
+        //           })
+        //           .catch((err) => {
+        //             console.log("Login error: ", err);
+        //           });
                 
-                // userLogin("client");
-                //usage: userLogin("roleName")
-                // history.push(`../clients/home`);
+        //         // userLogin("client");
+        //         //usage: userLogin("roleName")
+        //         // history.push(`../clients/home`);
 
-            })
-            .catch(err=>{
-                console.log("Signup error: ", err);
-                console.log("Error posting data: ", newUserPost);
-                console.log("Attempted to post to: ", newUserApi);
-            });
+        //     })
+        //     .catch(err=>{
+        //         console.log("Signup error: ", err);
+        //         console.log("Error posting data: ", newUserPost);
+        //         console.log("Attempted to post to: ", newUserApi);
+        //     });
+        //----------------------------------------------------
         
     } 
     
-    const testClick=()=>{
-
-    const testLoginUser = {...newUser}
-
-    console.log('testing apiLogin: ', testLoginUser);
-    apiLogin("register",testLoginUser)
-    
-    }
-
+  
     //Return-----------------------------
     return(
         <>
-        <div>
-          <button onClick={testClick}>Test</button>
-        </div>
        <div className="wrapper">
       <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>

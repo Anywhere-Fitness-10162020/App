@@ -47,9 +47,12 @@ export const apiLogin = (userAction, userObj) => {
                 //save token to localstorage
                 console.log('Token: ',res.data.token);
                 saveToken(res.data.token);
+
+                return res;
             })
             .catch(err=>{
                 console.log("Axios login error: ", err);
+                return err;
             }) 
     }
 
@@ -67,18 +70,24 @@ export const apiLogin = (userAction, userObj) => {
 
                 //send userinfo to Login function
                 axiosLogin(userLogin);
+
             })
             .catch(err=>{
                 console.log("Axios registration error: ", err);
+                return err;
             })
     }
 
     if(userAction==="register"){
-        return(axiosRegister(userRegister, userLogin));
+        return(
+            axiosRegister(userRegister, userLogin)
+            );
     }else if(userAction==="login"){
-        return(axiosLogin(userLogin));
+        return(
+            axiosLogin(userLogin)
+            );
     }else{
-        return("Axios error, check parameters");
+        return("Axios error, check parameters. userAction must be 'login' or 'register' ");
     }
 };
 
