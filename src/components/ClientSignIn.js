@@ -36,7 +36,8 @@ const ClientSignIn = (props) => {
     //.then expects a whole promise to be returned
       .then(res=>{
         console.log("Promise success: ",res)
-        setTimeout(history.push(`/home`),2000);
+        history.push(`../clients/home`)
+
       })
       .catch(err=>{
         console.log("Promise failed: ",err)
