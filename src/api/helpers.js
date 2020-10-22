@@ -37,20 +37,21 @@ export const apiLogin = (userAction, userObj) => {
     //login only:
     const axiosLogin = (userInfoLogin) => {
         console.log("----------------------")
-        console.log("Axios Login Function: ", userInfoLogin)
+        console.log("Logging in..")
         axios
             .post(apiLogin,userInfoLogin)
             .then((res)=>{
                 //confirmation details
                 console.log("Axios login successful");
-                console.log('Posted login to url: ', apiLogin);
-                console.log('Login server response: ',res);
+                // console.log('Posted login to url: ', apiLogin);
+                // console.log('Login server response: ',res);
 
                 //save token to localstorage
-                console.log('Token: ',res.data.token);
+                // console.log('Token: ',res.data.token);
                 saveToken(res.data.token);
                 
                 //dispatch login action to reducer
+                //sets "loggedIn" and "role" state
                 if(res.data.role === "instructor"){
                     store.dispatch(
                         userLogin("instructor")
@@ -74,14 +75,14 @@ export const apiLogin = (userAction, userObj) => {
     //signup then auto-login on successful registration:
     const axiosRegister = (userInfoRegister,userInfoLogin) => {
         console.log("----------------------")
-        console.log("Axios Register Function: ", userInfoRegister)
+        console.log("Signing up...")
         axios
             .post(apiRegister,userInfoRegister)
             .then((res)=>{
                 //confirmation details
                 console.log("Axios registration successful");
-                console.log('Registered new user to url: ', apiRegister);
-                console.log('Registration server response: ',res);
+                // console.log('Registered new user to url: ', apiRegister);
+                // console.log('Registration server response: ',res);
 
                 //send userinfo to Login function
                 axiosLogin(userInfoLogin);
