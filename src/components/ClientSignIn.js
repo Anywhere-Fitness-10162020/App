@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
-// import errors from "./src/validateInfo";
+import { useHistory, useRouteMatch, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { userLogin } from "../actions/index";
+import axios from "axios";
+import errors from "./src/validateInfo";
 import "./Form.css";
 import useForm from './src/useForm';
 import validateInfo from "./src/validateInfo";
-
-import {apiLogin} from '../api/helpers';
-
 const ClientSignIn = (props) => {
+  //Setup-----------------------------
+  const { userLogin } = props;
 
-  // //Routing-----------------------------
+  //Routing-----------------------------
   const history = useHistory();
   // const {path}=useRouteMatch();
 
@@ -28,27 +30,40 @@ const ClientSignIn = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-  //anywherefitness
+  // const handleClick = () => {
+  //     history.push(`${path}/signup`);
+  // }
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    apiLogin("login",user)
-    //.then expects a whole promise to be returned
-      .then(res=>{
-        console.log("Promise success: ",res)
-        history.push(`../clients/home`)
-
+    //Login Post------------------
+    const saveToken = (token) => {
+      window.localStorage.setItem("token", token);
+    };
+    const loginApi =
+      "https://anywherefitnesswebapi.herokuapp.com/api/auth/login";
+    const loginUser = { ...user };
+    console.log("posting login...");
+    axios
+      .post(loginApi, loginUser)
+      .then((res) => {
+        console.log("result: ", res.data);
+        //set global state
+        userLogin("client");
+        saveToken(res.data.token);
+        //push to client homepage
+        history.push(`clients/home`);
       })
-      .catch(err=>{
-        console.log("Promise failed: ",err)
+      .catch((err) => {
+        console.log("Login error: ", err);
       });
-
   };
   const { errors } = useForm(
     
     validateInfo
   );
 
+    
 
   return (
     // <div>
@@ -71,7 +86,6 @@ const ClientSignIn = (props) => {
     //         <p>Don't have an account? <Link to="/clients/signup"><span >Sign-up</span></Link></p>
     //     </form>
     // </div>
-    <>
     <div className="wrapper">
       <div className="form-content-right">
         <form onSubmit={handleSubmit} className="form" noValidate>
@@ -115,8 +129,7 @@ const ClientSignIn = (props) => {
         </form>
       </div>
     </div>
-    </>
   );
 };
 
-export default ClientSignIn;
+export default connect(null, { userLogin })(ClientSignIn);
