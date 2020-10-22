@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import {axiosWithAuth} from '../api/axiosWithAuth'
 import styled from 'styled-components'
 import * as yup from 'yup'
@@ -110,7 +110,7 @@ export default function InstructorForm(props) {
     const [disabled, setDisabled] = useState(true)
 
     //Instantiate useHistory hook
-    const history = useHistory();
+    // const history = useHistory();
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {

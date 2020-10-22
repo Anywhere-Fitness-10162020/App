@@ -119,16 +119,16 @@ export default function InstructorClassCard(props) {
                     :   
                         <>
                         <div className="col">
-                            {type === 'yoga' ? <img src='/assets/yoga.jpg' /> : null }
-                            {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' /> : null }
-                            {type === 'swimming' ? <img src='/assets/swimming.jpg' /> : null }
-                            {type === 'running' ? <img src='/assets/running.jpg' /> : null }
-                            {type === 'pilates' ? <img src='/assets/pilates.jpg' /> : null }
-                            {type === 'martial arts' ? <img src='/assets/martialarts.jpg' /> : null }
-                            {type === 'crossfit' ? <img src='/assets/crossfit.jpg' /> : null }
-                            {type === 'boxing' ? <img src='/assets/boxing.jpg' /> : null }
-                            {type === 'biking' ? <img src='/assets/biking.jpg' /> : null }
-                            {type === 'Adventure' ? <img src='/assets/adventure.jpg' /> : null }
+                            {type === 'yoga' ? <img src='/assets/yoga.jpg' alt="yoga"/> : null }
+                            {type === 'weightlifting' ? <img src='/assets/weightlifting.jpg' alt="weightlifting"/> : null }
+                            {type === 'swimming' ? <img src='/assets/swimming.jpg' alt="swimming"/> : null }
+                            {type === 'running' ? <img src='/assets/running.jpg' alt="running"/> : null }
+                            {type === 'pilates' ? <img src='/assets/pilates.jpg' alt="pilates"/> : null }
+                            {type === 'martial arts' ? <img src='/assets/martialarts.jpg' alt="martial arts"/> : null }
+                            {type === 'crossfit' ? <img src='/assets/crossfit.jpg' alt="crossfit"/> : null }
+                            {type === 'boxing' ? <img src='/assets/boxing.jpg' alt="boxing"/> : null }
+                            {type === 'biking' ? <img src='/assets/biking.jpg' alt="biking"/> : null }
+                            {type === 'Adventure' ? <img src='/assets/adventure.jpg' alt="adventure"/> : null }
 
                         </div>
                         <div className="col">
