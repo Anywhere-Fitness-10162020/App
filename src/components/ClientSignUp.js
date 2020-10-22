@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 import errors from './src/validateInfo'
 import './Form.css';
 import {apiLogin} from '../api/helpers';
@@ -7,7 +7,7 @@ import {apiLogin} from '../api/helpers';
  
 const ClientSignUp = (props) => {
     //Routing-----------------------------
-    const history=useHistory();
+    // const history=useHistory();
     // const {path}=useRouteMatch();
 
     //Form State-----------------------------

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
@@ -69,7 +69,7 @@ const defaultErrors = {
 
 
 const InstructorForm = (props) => {
-    const { loggedIn, role } = props;
+    // const { loggedIn, role } = props;
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -81,7 +81,7 @@ const InstructorForm = (props) => {
     const [disabled, setDisabled] = useState(true)
 
     //Instantiate useHistory hook
-    const history = useHistory();
+    // const history = useHistory();
 
     //Effect Hook: Check if form valid on user input, if so enable submit
     useEffect(() => {
