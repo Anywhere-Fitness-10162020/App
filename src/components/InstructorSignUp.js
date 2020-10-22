@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
 import {apiLogin} from '../api/helpers';
+import {connect} from 'react-redux'
 
 
 //Styled Components
@@ -68,6 +69,7 @@ const defaultErrors = {
 
 
 const InstructorForm = (props) => {
+    const { loggedIn, role } = props;
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -119,6 +121,23 @@ const InstructorForm = (props) => {
         // //------needs to be moved into axios promise:--------
         // setFormValues(defaultFormValues);
         // history.push('/instructors/confirmation')
+
+        // const resRedirect = () => {
+
+        // }   
+
+
+        // //------or async test state logic:--------
+
+        // const testTimer = () => {
+        //     if(role==="instructor" && loggedIn === true){
+        //         console.log("Login was successful, now do something");
+        //     }else{
+        //         console.log("Login was not successful, now display an error");
+        //     }
+        // }
+        // setTimeout(testTimer,500);
+
     };
 
 
@@ -175,4 +194,10 @@ const InstructorForm = (props) => {
     )
 }
 
-export default InstructorForm;
+const mapStateToProps = state => {
+    return {
+        loggedIn:state.loggedIn,
+        role:state.role
+    }
+}
+export default connect(mapStateToProps,null)(InstructorForm);

@@ -20,7 +20,7 @@ export const apiLogin = (userAction, userObj) => {
     const apiRegister = `${apiBase}/register`;
     const apiLogin = `${apiBase}/login`;
 
-    //user data sent to registration api:
+    //--- user data sent to registration api:
     const userInfoRegister = {
         username:userObj.username,
         password:userObj.password,
@@ -28,30 +28,30 @@ export const apiLogin = (userAction, userObj) => {
         role:userObj.role
     }
 
-    //user data sent to login api:
+    //--- user data sent to login api:
     const userInfoLogin={
         username:userObj.username,
         password:userObj.password
     }
     
-    //login only:
+    //--- ogin only:
     const axiosLogin = (userInfoLogin) => {
         console.log("----------------------")
         console.log("Logging in..")
         axios
             .post(apiLogin,userInfoLogin)
             .then((res)=>{
-                //confirmation details
+                //--- confirmation details
                 console.log("Axios login successful");
                 // console.log('Posted login to url: ', apiLogin);
                 // console.log('Login server response: ',res);
 
-                //save token to localstorage
+                //--- save token to localstorage
                 // console.log('Token: ',res.data.token);
                 saveToken(res.data.token);
                 
-                //dispatch login action to reducer
-                //sets "loggedIn" and "role" state
+                //--- dispatch login action to reducer
+                //--- sets "loggedIn" and "role" state
                 if(res.data.role === "instructor"){
                     store.dispatch(
                         userLogin("instructor")
