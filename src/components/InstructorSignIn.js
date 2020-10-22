@@ -110,12 +110,17 @@ const InstructorSignIn = (props) => {
     const submit = (event) => {
         //Prevent default form behaviour
         event.preventDefault();
-        apiLogin("login",formValues);
+        apiLogin("login",formValues)
+            .then(res=>{
+                console.log("Promise success: ",res)
+                //check that actual role is instructor before redirecting to instructors page
+                //or add an auto redirect out of instructors page if user is not an instructor
+                history.push(`../instructors/home`)
         
-        // setFormValues(defaultFormValues);
-
-        // //Push to classes page
-        // // history.push(`${path}/classes`);
+            })
+            .catch(err=>{
+                console.log("Promise failed: ",err)
+            });
     };
 
 

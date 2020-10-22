@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { /*useHistory,*/ Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 // import errors from "./src/validateInfo";
 import "./Form.css";
 import useForm from './src/useForm';
@@ -10,7 +10,7 @@ import {apiLogin} from '../api/helpers';
 const ClientSignIn = (props) => {
 
   // //Routing-----------------------------
-  // const history = useHistory();
+  const history = useHistory();
   // const {path}=useRouteMatch();
 
   //Form State-----------------------------
@@ -28,10 +28,21 @@ const ClientSignIn = (props) => {
       [e.target.name]: e.target.value,
     });
   };
-
+  //anywherefitness
   const handleSubmit = (e) => {
     e.preventDefault();
-    apiLogin("login",user);
+
+    apiLogin("login",user)
+    //.then expects a whole promise to be returned
+      .then(res=>{
+        console.log("Promise success: ",res)
+        history.push(`../clients/home`)
+
+      })
+      .catch(err=>{
+        console.log("Promise failed: ",err)
+      });
+
   };
   const { errors } = useForm(
     

@@ -38,7 +38,7 @@ export const apiLogin = (userAction, userObj) => {
     const axiosLogin = (userInfoLogin) => {
         console.log("----------------------")
         console.log("Logging in..")
-        axios
+        return axios
             .post(apiLogin,userInfoLogin)
             .then((res)=>{
                 //--- confirmation details
@@ -60,10 +60,7 @@ export const apiLogin = (userAction, userObj) => {
                     store.dispatch(
                         userLogin("client")
                     );
-                }
-
-
-
+                } 
                 return res;
             })
             .catch(err=>{
@@ -76,7 +73,7 @@ export const apiLogin = (userAction, userObj) => {
     const axiosRegister = (userInfoRegister,userInfoLogin) => {
         console.log("----------------------")
         console.log("Signing up...")
-        axios
+        return axios
             .post(apiRegister,userInfoRegister)
             .then((res)=>{
                 //confirmation details

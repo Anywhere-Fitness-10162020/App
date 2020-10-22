@@ -3,11 +3,12 @@ import React, {useState} from 'react';
 import errors from './src/validateInfo'
 import './Form.css';
 import {apiLogin} from '../api/helpers';
+import {useHistory} from 'react-router-dom';
 
  
 const ClientSignUp = (props) => {
     //Routing-----------------------------
-    // const history=useHistory();
+    const history=useHistory();
     // const {path}=useRouteMatch();
 
     //Form State-----------------------------
@@ -32,6 +33,14 @@ const ClientSignUp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         apiLogin("register",newUser)
+          .then(res=>{
+            console.log("Promise success: ",res)
+            history.push(`../clients/home`)
+    
+          })
+          .catch(err=>{
+            console.log("Promise failed: ",err)
+          });
     } 
   
 
