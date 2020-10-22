@@ -98,6 +98,8 @@ const defaultErrors = {
 
 export default function InstructorForm(props) {
 
+    const { getCards } = props;
+
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
 
@@ -156,6 +158,7 @@ export default function InstructorForm(props) {
         axiosWithAuth()
             .post('https://anywherefitnesswebapi.herokuapp.com/api/classes', newClass)
             .then(res => {
+                getCards();
                 console.log('Add Class Successful ',res.data);
             })
             .catch(err => {

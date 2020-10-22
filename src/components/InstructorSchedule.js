@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {axiosWithAuth} from '../api/axiosWithAuth';
 import styled from 'styled-components'
 import InstructorClassCard from './InstructorClassCard'
+import CreateClass from './CreateClass'
 
 
 //Styled Components
@@ -105,6 +106,9 @@ export default function InstructorSchedule(props) {
                 getCards = {getCards}
             />)
             : null}
+
+            {/*Create Class Form*/}
+            <CreateClass getCards = {getCards}/>
         </ScheduleContainer>
     )
 }
