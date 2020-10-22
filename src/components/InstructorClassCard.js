@@ -64,7 +64,17 @@ const ClassInfo = styled.div`
         font-weight: 700;
     }
 
-    
+           
+    @media(max-width: 700px) {
+        flex-flow: column wrap;
+
+        div.col {
+            width: 100%;
+        }
+        img { 
+            width: 100%;
+        }
+    }
 `;
 
 
