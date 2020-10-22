@@ -4,7 +4,7 @@ import {userLogin} from '../actions/index.js';
 import {useHistory} from 'react-router-dom';
 import errors from './src/validateInfo'
 import './Form.css';
-import {saveToken, apiLogin} from '../api/helpers';
+import {saveToken, apiLogin, testDispatch} from '../api/helpers';
 
  
 const ClientSignUp = (props) => {
@@ -39,7 +39,7 @@ const ClientSignUp = (props) => {
   
         apiLogin("register",newUser)
 
-        
+
         //----------------------------------------------------
         // //Signup Post------------------
         // const newUserPost = {...newUser};
@@ -86,10 +86,17 @@ const ClientSignUp = (props) => {
         
     } 
     
+    const testClick=(e)=>{
+      e.preventDefault();
+      testDispatch();
+    }
   
     //Return-----------------------------
     return(
         <>
+        <div>
+          <button onClick={testClick}>Test</button>
+        </div>
        <div className="wrapper">
       <div className='form-content-right'>
       <form onSubmit={handleSubmit} className='form' noValidate>

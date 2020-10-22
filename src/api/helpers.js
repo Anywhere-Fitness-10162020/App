@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import {store} from '../index'
+import {testAction} from '../actions/index'
 
 export const saveToken = (token) => {
     window.localStorage.setItem('token',token);
@@ -91,6 +93,9 @@ export const apiLogin = (userAction, userObj) => {
     }
 };
 
+export const testDispatch = () => {
+    store.dispatch(testAction('Stack Overflow'));
+}
 
 
 // const testClick=()=>{
