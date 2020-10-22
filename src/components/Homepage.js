@@ -15,7 +15,7 @@ const HomepageContainer = styled.div`
     }
 
     .hero {
-        background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+        background: url('/assets/hero1.jpg');
         background-attachment: fixed;
         background-size: cover;
         padding: 4%;
@@ -35,7 +35,7 @@ const HomepageContainer = styled.div`
     }
 
     .info2 {
-        background: url('https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+        background: url('/assets/hero2.jpg');
         background-attachment: fixed;
         background-size: cover;
     }
