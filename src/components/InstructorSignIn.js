@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom'
-import axios from 'axios';
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSigninSchema from '../schemas/instructor_signin_schema'
-import { userLogin } from '../actions';
-import {connect} from 'react-redux';
 import {apiLogin} from '../api/helpers';
-
-
 
 //Styled Components
 const ErrorContainer = styled.div`
@@ -67,9 +62,7 @@ const defaultErrors = {
 
 
 const InstructorSignIn = (props) => {
-    const {userLogin} = props;
-
-
+    
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
 
@@ -118,33 +111,11 @@ const InstructorSignIn = (props) => {
         //Prevent default form behaviour
         event.preventDefault();
         apiLogin("login",formValues);
-        // const instructorLogin = {
-        //     username: formValues.username,
-        //     password: formValues.password
-        // }
- 
-        // //Post to server
-        // const loginApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/login'
-        // console.log('posting login...');
-        // axios.post(loginApi, instructorLogin)
-        //     .then(res => {
-        //         console.log('User logged in: ', res.data)
-        //         userLogin('instructor');
-        //         saveToken(res.data.token);
-        //         history.push(`instructors/home`);
-        //     })
-        //     .catch(err => {
-        //         console.log('Login error: ', err)
-        //         console.log('message', err.message, 'body: ',err.body);
-        //         console.log('Data failed to post: ', instructorLogin);
-        //         console.log('Attempted to post to: ', loginApi);
-        //     })
         
         // setFormValues(defaultFormValues);
 
         // //Push to classes page
         // // history.push(`${path}/classes`);
-
     };
 
 
@@ -181,4 +152,4 @@ const InstructorSignIn = (props) => {
     )
 }
  
-export default connect (null, {userLogin})(InstructorSignIn);
+export default InstructorSignIn;

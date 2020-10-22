@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-// import axios from 'axios'
 import styled from 'styled-components'
 import * as yup from 'yup'
 import instructorSignUpSchema from '../schemas/instructor_signup_schema'
-import {connect} from 'react-redux'
-import {userLogin} from '../actions/index.js'
 import {apiLogin} from '../api/helpers';
 
 
@@ -71,8 +68,6 @@ const defaultErrors = {
 
 
 const InstructorForm = (props) => {
-    //Setup-----------------------------    
-    const {userLogin}=props;
 
     //Keep track of form values
     const [formValues, setFormValues] = useState(defaultFormValues);
@@ -120,29 +115,6 @@ const InstructorForm = (props) => {
         //Prevent default form behaviour
         event.preventDefault();
         apiLogin("register", formValues);
-
-        // const newInstructor = {
-        //     username: formValues.username,
-        //     password: formValues.password,
-        //     email: formValues.email,
-        //     role: formValues.role
-        // }
-        // const newInstructorApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
-        
-        // axios
-        //     .post(newInstructorApi, newInstructor)
-        //     .then(res => {
-        //         console.log(res.data);
-        //         userLogin("instructor");
-        //         history.push(`../instructors/home`);
-        //     })
-        //     .catch(err => {
-        //         console.log("Signup error: ", err);
-        //         console.log("Error posting data: ", newInstructor);
-        //         console.log("Attempted to post to: ", newInstructorApi);
-        //     })
-
-
 
         // //------needs to be moved into axios promise:--------
         // setFormValues(defaultFormValues);
@@ -203,4 +175,4 @@ const InstructorForm = (props) => {
     )
 }
 
-export default connect(null,{userLogin})(InstructorForm);
+export default InstructorForm;

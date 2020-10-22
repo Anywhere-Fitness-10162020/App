@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {connect} from 'react-redux';
-import {userLogin} from '../actions/index.js';
 import {useHistory} from 'react-router-dom';
 import errors from './src/validateInfo'
 import './Form.css';
@@ -8,9 +6,6 @@ import {apiLogin} from '../api/helpers';
 
  
 const ClientSignUp = (props) => {
-    //Setup-----------------------------    
-    const {userLogin}=props;
-    
     //Routing-----------------------------
     const history=useHistory();
     // const {path}=useRouteMatch();
@@ -36,52 +31,7 @@ const ClientSignUp = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-
         apiLogin("register",newUser)
-
-        //----------------------------------------------------
-        // //Signup Post------------------
-        // const newUserPost = {...newUser};
-        // delete newUserPost.password2;
-        // console.log(newUserPost);
-
-        // const newUserApi = 'https://anywherefitnesswebapi.herokuapp.com/api/auth/register';
-        // console.log("Submitting registration...", newUserPost);
-        // axios
-        //     .post(newUserApi, newUserPost)
-        //     .then(res =>{
-        //         console.log("Signup successful:", res.data);
-        //         console.log("Logging in... ");
-                
-        //         const newUserLogin = {...newUserPost}
-        //         delete newUserLogin.password2
-        //         delete newUserLogin.email
-        //         console.log("New user login: ",newUserLogin);
-        //         axios
-        //           .post('https://anywherefitnesswebapi.herokuapp.com/api/auth/login', newUserLogin)
-        //           .then((res) => {
-        //             console.log("result: ", res.data);
-        //             //set global state
-        //             userLogin("client");
-        //             saveToken(res.data.token);
-        //             //push to client homepage
-        //             history.push(`clients/home`);
-        //           })
-        //           .catch((err) => {
-        //             console.log("Login error: ", err);
-        //           });
-                
-        //         // userLogin("client");
-        //         //usage: userLogin("roleName")
-        //         // history.push(`../clients/home`);
-
-        //     })
-        //     .catch(err=>{
-        //         console.log("Signup error: ", err);
-        //         console.log("Error posting data: ", newUserPost);
-        //         console.log("Attempted to post to: ", newUserApi);
-        //     });
-        //----------------------------------------------------
     } 
   
 
@@ -156,7 +106,7 @@ const ClientSignUp = (props) => {
     )
     }
 
-export default connect(null,{userLogin})(ClientSignUp);
+export default ClientSignUp;
 // <div>
         //     <h2>Client Form</h2>
         //     <h3>Sign up:</h3>
