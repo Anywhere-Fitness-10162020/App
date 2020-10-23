@@ -27,6 +27,17 @@ const NavContainer = styled.div`
     nav {
         padding: 2%;
         width: 100%;
+    }
+    button{
+        padding: 1%;
+        font-weight: 700;
+        background-color:white;
+        font-family:sans-serif;
+        font-size:1.7rem;
+        border:none;
+        color:#F34213;
+        margin-left:1rem;
+
     }    
 `;
 
@@ -37,7 +48,7 @@ const AppContainer = styled.div`
 const App = (props) => {
     const {loggedIn, role} = props;
     return(
-    <>
+    <> 
         <NavContainer>
             <nav>                
                 <h1>Anywhere Fitness</h1>
@@ -46,7 +57,7 @@ const App = (props) => {
                 {loggedIn && role === "instructor" ? <NavLink to='/instructors/home'>Instructors</NavLink> : <NavLink to='/instructors'>Instructors</NavLink>}
                 {loggedIn ? <LogoutButton /> : null }
             </nav>
-            <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p>
+            {/* <p className="testing">User: {role}, {loggedIn ? "is logged in" : "is NOT logged in"}</p> */}
         </NavContainer>
         <AppContainer>
             <Switch>
